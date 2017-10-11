@@ -7,10 +7,58 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="frame/swiper/swiper-3.4.2.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    body{
+      height: 6000px;
+    }
+  </style>
 </head>
 <body>
+  <!-- 首页搜索框 -->
+  <div class="search-box">
+    <div class="search-box-wrap">
+      <div class="search">
+        <i class="search-pic"></i>
+        <b class="web-address"></b>
+      </div>
+    </div>
+    <span class="shop-bag"></span>
+  </div>
 
-
+  <!-- 首页banner -->
+  <div class="index-banner">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href="#">
+            <img src="images/banner01.jpg" alt="">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#">
+            <img src="images/banner02.jpg" alt="">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#">
+            <img src="images/banner03.jpg" alt="">
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="#">
+            <img src="images/banner04.jpg" alt="">
+          </a>
+        </div>
+      </div>
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+  
+  <script type="text/javascript" src="frame/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="frame/swiper/swiper-3.4.2.jquery.min.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>

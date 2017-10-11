@@ -1,0 +1,72 @@
+/*头部搜索框样式*/
+.search-box{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: url("../images/search-bg.png") no-repeat;
+  background-size: 100% 0.42rem;
+  z-index: 999;
+}
+
+.search-box-wrap{
+  padding: .06rem .55rem .06rem .17rem;
+}
+
+.search{
+  position: relative;
+  height: 0.3rem;
+  line-height: 0.3rem;
+  background-color: hsla(0,0%,100%,.25);
+  border-radius: 4px;
+  padding-left: 7px;
+}
+
+.search-pic{
+  width: 13px;
+  height: 13px;
+  background: url("../images/search.png") no-repeat;
+  background-size: 13px 13px;
+}
+
+.web-address{
+  width: 75px;
+  height: 12px;
+  background: url("../images/webAddress.png") no-repeat;
+  background-size: 75px 12px;
+  margin-left: 23px;
+}
+
+.search-pic,
+.web-address{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.shop-bag {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.22rem;
+  height: 0.22rem;
+  background: url("../images/shopBag.png") no-repeat;
+  background-size: 0.22rem 0.22rem;
+  right: 0.17rem;
+}
+
+/*banner部分样式开始*/
+.index-banner{
+  width: 100%;
+}
+.index-banner img {
+  width: 100%;
+}
+.swiper-pagination-bullet{
+  border: 1px solid #fff;
+  opacity: 1;
+  background-color: rgba(0,0,0,.2);
+}
+.swiper-pagination-bullet-active{
+  background: #fff;
+}
