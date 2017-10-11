@@ -1,0 +1,13 @@
+.login-form-bottom{
+	width: 100%;
+	text-align: center;
+}
+.login-form-bottom > span{
+	font-size:12px ;
+		color: #ccc;
+}
+.protocol{
+	font-size:13px ;
+	text-decoration: underline;
+	color: #7e8c8d;
+}
