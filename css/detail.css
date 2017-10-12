@@ -1,167 +1,166 @@
 *{box-sizing: border-box;}
-  	html,body{
-  		max-width: 640px;
-  		margin: 0 auto;
-  	}
-  	header{
-  		width: 100%;
-  		height: 100%;
-  	}
-  	.detail_banner{
-  		width: 100%;
-  		height: 3.6rem;
-  	}
-  	.swiper-container{
-    	width: 100%;
-    	float: left;
-    	margin-top: -3px;
-    }
-    .swiper-slide{
-    	float: left;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .swiper-slide img{
-    	width: 100%;
-    	height: auto;
-    }
-    .detail_car{
-    	z-index: 99;
-    	width: 32px;
-    	height: 32px;
-    	position: fixed;
-    	top: 15px;
-    	right: 20px;
-    	border-radius: 50%;
-    	background-color: #999;
-    }
-    .detail_car a img{
-    	width: 32px;
-    	height: 32px;
-    	display: block;
-    }
-    .redcardbg{
-    	position: fixed;
-	    left: 0;
-	    top: 0;
-	    bottom: 0;
-	    width: 100%;
-	    background: #000;
-	    opacity: .5;
-	    z-index: 3;
-	    display: none;
-    }
-    .productParm {
-	    position: fixed;
-	    height: 480px;
-	    bottom: 0;
-	    left: 0;
-	    width: 100%;
-	    z-index: 3;
-	    background: #fafafa;
-	    font-size: 16px;
-	    display: none;
-		}
-		.productParm .ptbtn {
-	    position: absolute;
-	    left: 0;
-	    bottom: 0;
-	    display: flex;
-	    width: 100%;
-	    background: #9b885f;
-	    font-size: 20px;
-	    line-height: 0.5rem;
-	    text-align: center;
-		}
-		.productParm .ptbtn a{margin: auto;color: #fff;}
-		.productParm .pttitle {
-	    height: .9rem;
-	    position: relative;
-	    color: #ccc;
-	    position: absolute;
-	    left: 0;
-	    top: 0;
-	    width: 100%;
-	    background: #fff;
-		}
-		.productParm .pttitle .ptimg {
-	    width: 1rem;
-	    height: 1rem;
-	    position: absolute;
-	    border: 1px solid #ccc;
-	    left: 15px;
-	    bottom: 15px;
-	    display: flex;
-	    background: #fff;
-		}
-		.productParm .pttitle .titleright {
-	    position: absolute;
-	    text-align: left;
-	    left: 125px;
-	    right: 45px;
-	    height: 100%;
-		}
-		.productParm .pttitle .titleright .name {
-	    font-size: 12px;
-	    color: #333;
-	    padding: .15rem 0 .06rem;
-	    white-space: nowrap;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-		}
-		.productParm .pttitle .titleright .price {
-	    font-size: 13px;
-	    color: #9b885f;
-	    padding-bottom: 13px;
-		}
-		.productParm .ptcon {
-	    position: absolute;
-	    left: 15px;
-	    top: .9rem;
-	    bottom: .5rem;
-	    background: #fafafa;
-	    opacity: .95;
-	    width: 100%;
-	    overflow: hidden;
-		}
-		.productParm .ptcon .pt_list_wp .pt_list {
-	    text-align: left;
-	    min-height: .85rem;
-	    position: relative;
-		}
-		.productParm .ptcon .pt_list_wp .pt_list .pt_list_tt {
-	    font-size: 14px;
-	    color: #333;
-	    padding: 16px 0 10px;
-		}
-		.productParm .ptcon .pt_list_wp .pt_list .pt_list_con {
-	    display: flex;
-	    width: 98.5%;
-	    margin-right: 15px;
-		}
-		.productParm .ptcon .pt_list_wp .pt_list .pt_list_con .pt_list_son {
-	    font-size: 14px;
-	    color: #333;
-	    width: 17%;
-	    margin-right: 10px;
-	    display: block;
-	    border-radius: 4px;
-	    margin-bottom: 15px;
-	    border: 1px solid #ccc;
-	    text-align: center;
-	    line-height: .3rem;
-		}
-		.productParm .ptcon .pt_list_wp .pt_list .pt_list_con .ptsel {
-	    background: #fff;
-	    border: 1px solid #9b885f;
-	    color: #9b885f;
-	    position: relative;
-		}
-		.productParm .ptcon .pt_list_wp .pt_list .pt_list_con .ptsel:after {
-	    position: absolute;
-	    right: -10px;
-	    top: -10px;
-	    content: " ";
+html,body{
+	max-width: 640px;
+	margin: 0 auto;
+}
+header{
+	width: 100%;
+	height: 100%;
+}
+.detail_banner{
+	width: 100%;
+	height: 3.6rem;
+}
+.swiper-container{
+	width: 100%;
+	float: left;
+	margin-top: -3px;
+}
+.swiper-slide{
+	float: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+.swiper-slide img{
+	width: 100%;
+	height: auto;
+}
+.detail_car{
+	z-index: 99;
+	width: 32px;
+	height: 32px;
+	position: fixed;
+	top: 15px;
+	left: 20px;
+	border-radius: 50%;
+	background-color: #999;
+}
+.detail_car a img{
+	width: 32px;
+	height: 32px;
+	display: block;
+}
+.redcardbg{
+	position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  opacity: .5;
+  z-index: 3;
+  display: none;
+}
+.productParm {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+  background: #fafafa;
+  font-size: 16px;
+  display: none;
+}
+.productParm .ptbtn {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  background: #9b885f;
+  font-size: 20px;
+  line-height: 0.5rem;
+  text-align: center;
+}
+.productParm .ptbtn a{margin: auto;color: #fff;}
+.productParm .pttitle {
+  height: .9rem;
+  position: relative;
+  color: #ccc;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+}
+.productParm .pttitle .ptimg {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  border: 1px solid #ccc;
+  left: 15px;
+  bottom: 15px;
+  display: flex;
+  background: #fff;
+}
+.productParm .pttitle .titleright {
+  position: absolute;
+  text-align: left;
+  left: 125px;
+  right: 45px;
+  height: 100%;
+}
+.productParm .pttitle .titleright .name {
+  font-size: 12px;
+  color: #333;
+  padding: .15rem 0 .06rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.productParm .pttitle .titleright .price {
+  font-size: 13px;
+  color: #9b885f;
+  padding-bottom: 13px;
+}
+.productParm .ptcon {
+  position: absolute;
+  left: 15px;
+  top: .9rem;
+  bottom: .5rem;
+  background: #fafafa;
+  opacity: .95;
+  width: 100%;
+  overflow: hidden;
+}
+.productParm .ptcon .pt_list_wp .pt_list {
+  text-align: left;
+  min-height: .85rem;
+  position: relative;
+}
+.productParm .ptcon .pt_list_wp .pt_list .pt_list_tt {
+  font-size: 14px;
+  color: #333;
+  padding: 16px 0 10px;
+}
+.productParm .ptcon .pt_list_wp .pt_list .pt_list_con {
+  display: flex;
+  width: 98.5%;
+  margin-right: 15px;
+}
+.productParm .ptcon .pt_list_wp .pt_list .pt_list_con .pt_list_son {
+  font-size: 14px;
+  color: #333;
+  width: 17%;
+  margin-right: 10px;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  text-align: center;
+  line-height: .3rem;
+}
+.productParm .ptcon .pt_list_wp .pt_list .pt_list_con .ptsel {
+  background: #fff;
+  border: 1px solid #9b885f;
+  color: #9b885f;
+  position: relative;
+}
+.productParm .ptcon .pt_list_wp .pt_list .pt_list_con .ptsel:after {
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  content: " ";
   border: 10px solid transparent;
   display: inline-block;
   border-bottom-color: #9b885f;
@@ -374,12 +373,12 @@
   position: relative;
 }
 .detail_btm .kefy{
-	width: 1rem;
+	width: .56rem;
   border: 1px solid #ccc;
   border-right: none;
 }
 .detail_btm .gouw{
-	width: 1rem;
+	width: .56rem;
   border: 1px solid #ccc;
   border-right: none;
 }
@@ -391,12 +390,14 @@
   font-size: 16px;
   background: #ccb27f;
   color: #FFFFFF;
+  flex: 1;
   line-height: 0.43rem;
 }
 .detail_btm .goum{
 	text-align: center;
 	width: 1.46rem;
   border: 1px solid #ccc;
+  flex: 1;
   font-size: 16px;
   border-right: none;
   background: #9b885f;
