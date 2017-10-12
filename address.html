@@ -35,7 +35,7 @@
       </div>
       <div class="area-box" id="area-box">
         <span class="area">所在区域</span>
-        <span class="area-detail">省-市-区</span>
+        <span class="area-detail" id="area-detail">省-市-区</span>
         <span class="more"></span>
       </div>
       <div class="postcode-box">
@@ -52,7 +52,6 @@
     <div class="address-box-head">
       <div class="back" id="back"></div>
       <div class="head-title">添加收货地址</div>
-      <div class="save">保存</div>
     </div>
     <div class="address-nav" id="address-nav">
       <div class="nav-text" id="text1">请选择
@@ -60,44 +59,46 @@
       </div>
     </div>
     <div class="nav-select-box">
-    <ul>
-      <li class="nav-select" id="beijing">北京</li>
-      <li class="nav-select">安徽</li>
-      <li class="nav-select">福建</li>
-      <li class="nav-select">甘肃</li>
-      <li class="nav-select">广东</li>
-      <li class="nav-select">广西</li>
-      <li class="nav-select">贵州</li>
-      <li class="nav-select">海南</li>
-      <li class="nav-select">河北</li>
-      <li class="nav-select">河南</li>
-      <li class="nav-select">黑龙江</li>
-      <li class="nav-select">湖北</li>
-      <li class="nav-select">湖南</li>
-      <li class="nav-select">吉林</li>
-      <li class="nav-select">江苏</li>
-      <li class="nav-select">江西</li>
-      <li class="nav-select">辽宁</li>
-      <li class="nav-select">内蒙古</li>
-      <li class="nav-select">宁夏</li>
-      <li class="nav-select">青海</li>
-      <li class="nav-select">山东</li>
-      <li class="nav-select">山西</li>
-      <li class="nav-select">陕西</li>
-      <li class="nav-select">山东</li>
-      <li class="nav-select">上海</li>
-      <li class="nav-select">四川</li>
-      <li class="nav-select">天津</li>
-      <li class="nav-select">西藏</li>
-      <li class="nav-select">新疆</li>
-      <li class="nav-select">云南</li>
-      <li class="nav-select">浙江</li>
-      <li class="nav-select">重庆</li>
-      <li class="nav-select">香港</li>
-      <li class="nav-select">澳门</li>
-      <li class="nav-select">台湾</li>
-    </ul>
-  </div>
+      <ul class="province">
+        <li class="nav-select" id="beijing">北京</li>
+        <li class="nav-select">安徽</li>
+        <li class="nav-select">福建</li>
+        <li class="nav-select">甘肃</li>
+        <li class="nav-select">广东</li>
+        <li class="nav-select">广西</li>
+        <li class="nav-select">贵州</li>
+        <li class="nav-select">海南</li>
+        <li class="nav-select">河北</li>
+        <li class="nav-select">河南</li>
+        <li class="nav-select">黑龙江</li>
+        <li class="nav-select">湖北</li>
+        <li class="nav-select">湖南</li>
+        <li class="nav-select">吉林</li>
+        <li class="nav-select">江苏</li>
+        <li class="nav-select">江西</li>
+        <li class="nav-select">辽宁</li>
+        <li class="nav-select">内蒙古</li>
+        <li class="nav-select">宁夏</li>
+        <li class="nav-select">青海</li>
+        <li class="nav-select">山东</li>
+        <li class="nav-select">山西</li>
+        <li class="nav-select">陕西</li>
+        <li class="nav-select">山东</li>
+        <li class="nav-select">上海</li>
+        <li class="nav-select">四川</li>
+        <li class="nav-select">天津</li>
+        <li class="nav-select">西藏</li>
+        <li class="nav-select">新疆</li>
+        <li class="nav-select">云南</li>
+        <li class="nav-select">浙江</li>
+        <li class="nav-select">重庆</li>
+        <li class="nav-select">香港</li>
+        <li class="nav-select">澳门</li>
+        <li class="nav-select">台湾</li>
+      </ul>
+      <ul class="city"></ul>
+      <ul class="region"></ul>
+    </div>
   </div>
 </div>
 <script src="js/address.js"></script>

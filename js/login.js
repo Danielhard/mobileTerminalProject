@@ -14,4 +14,4 @@ Loginbtn.addEventListener(touchstart,function(){
 
 	  }
 	)
-})
+});
