@@ -115,7 +115,9 @@ oText1.addEventListener("touchstart",function () {
   oRegion.style.display="none";
   oText1.style.color="#afa081";
   oNav.removeChild(text2);
-  oNav.removeChild(text3);
+  if(text3==true) {
+    oNav.removeChild(text3);
+  }
 },false);
 
 // 重新选择城市
