@@ -4,6 +4,7 @@
     var oUpInfo=document.querySelector('.upInfo');
     var oSz=oInfo.querySelector('.sz');
     var oReturnLast=oUpInfo.querySelector('.return_last');
+    var oAddressJump=oUpInfo.querySelector('#address_jump');
 
      oSz.addEventListener('touchstart',function () {
          oInfo.style.display='none';
@@ -21,5 +22,9 @@
              oInfo.style.display='block';
          },200);
      })
+    oAddressJump.addEventListener('touchstart',function () {
+         location.href='address.html';
+    })
+
 
 })()
