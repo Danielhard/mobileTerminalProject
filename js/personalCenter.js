@@ -26,4 +26,4 @@
     oAddressJump.addEventListener('touchstart',function () {
          location.href='address.html';
     })
-})()
+  })()
