@@ -22,9 +22,8 @@
              oInfo.style.display='block';
          },200);
      })
+    // 个人中心管理收货地址
     oAddressJump.addEventListener('touchstart',function () {
          location.href='address.html';
     })
-
-
 })()

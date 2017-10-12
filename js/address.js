@@ -12,16 +12,22 @@ open.addEventListener("touchstart",function () {
 var oArea =document.querySelector("#area-box");
 var oHidden = document.querySelector("#hidden");
 var oChoose = document.querySelector("#address-choose");
+var oReturnPersonal=document.querySelector('#returnPersonal');
 oArea.addEventListener("touchstart",function () {
   oHidden.style.display="none";
   oChoose.style.display="block";
-},false);
+ },false);
 
 var oBack = document.querySelector("#back");
 oBack.addEventListener("touchstart",function () {
-  oChoose.style.display="none";
-  oHidden.style.display="block";
+      oChoose.style.display="none";
+      oHidden.style.display="block";
 },false);
+// 收货地址返回个人中心
+oReturnPersonal.addEventListener('touchstart',function () {
+    location.href='personalCenter.html';
+
+});
 var beijing = document.querySelector("#beijing");
 var oNav = document.querySelector("#address-nav");
 var oText1 = document.querySelector("#text1");
