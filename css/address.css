@@ -21,7 +21,6 @@ body{
 }
 .head-title{
   width: 100%;
-  margin-left: -52px;
   margin-right:-45px;
   float:left;
   text-align: center;
@@ -142,6 +141,10 @@ body{
 .hidden{
   display:block;
 }
+.city,.region{
+  display: none;
+}
+
 
 
 
