@@ -9,11 +9,6 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="frame/swiper/swiper-3.4.2.min.css">
   <link rel="stylesheet" href="css/index.css">
-  <style>
-    body{
-      height: 6000px;
-    }
-  </style>
 </head>
 <body>
   <!-- 首页搜索框 -->
@@ -28,7 +23,7 @@
   </div>
 
   <!-- 首页banner -->
-  <div class="index-banner">
+  <section class="index-banner">
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
@@ -55,10 +50,46 @@
       <!-- 如果需要分页器 -->
       <div class="swiper-pagination"></div>
     </div>
-  </div>
+  </section>
+
+  <!-- 热卖推荐 -->
+  <section class="hot-pro">
+    <h3 class="hot-pro-title"><span class="hot-pro-title-txt">热卖推荐</span></h3>
+    <div class="hot-pro-con">
+      <div>
+        <ul id="pro-list" class="pro-list clearfix">
+          <!--<li class="pro-list-item">-->
+            <!--<a href="#">-->
+              <!--<div class="pli-top">-->
+                <!--<img src="images/item01.jpg" alt="">-->
+              <!--</div>-->
+              <!--<div class="pli-bottom">-->
+                <!--<h4 class="pro-name">动物系列  豹纹 卫衣裙</h4>-->
+                <!--<p><span class="dis-price"><del>&yen;360</del></span></p>-->
+                <!--<p class="clearfix"><span class="price"><i>&yen;</i>260</span> <span class="sale-count">已售：9999</span></p>-->
+              <!--</div>-->
+            <!--</a>-->
+          <!--</li>-->
+        </ul>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 底部导航区 -->
+  <nav id="bottom-nav" class="index-nav">
+    <ul>
+      <!--注意i里面是不能加div的这里我将i转成了块才可以，不过不是很好-->
+      <li class="index-nav-list selected"><a href="index.html"><i><div class="mark"></div></i><p class="index-nav-list-des">首页</p></a></li>
+      <li class="index-nav-list"><a href="#"><i><div class="mark"></div></i><p class="index-nav-list-des">订单</p></a></li>
+      <li class="index-nav-list"><a href="#"><i><div class="mark"></div></i><p class="index-nav-list-des">购物车</p></a></li>
+      <li class="index-nav-list"><a href="personalCenter.html"><i><div class="mark"></div></i><p class="index-nav-list-des">我的</p></a></li>
+      <li class="index-nav-list"><a href="#"><i><div class="mark"></div></i><p class="index-nav-list-des">更多</p></a></li>
+    </ul>
+  </nav>
   
   <script type="text/javascript" src="frame/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="frame/swiper/swiper-3.4.2.jquery.min.js"></script>
+  <script type="text/javascript" src="js/common.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
