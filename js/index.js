@@ -50,4 +50,18 @@
       $(this).addClass('selected').siblings().removeClass('selected');
     })
   });
-})();
+
+  //判断是否登录，有则跳转个人中心，没有则返回登陆
+  $('.personalCenter').on('touchstart',function () {
+      if(localStorage.username) {
+           location.href = 'personalCenter.html';
+      } else{
+           location.href='login.html';
+     }
+   })
+    $('.search-box').on('touchstart',function () {
+        location.href='searchPage.html';
+    })
+
+
+  })();
