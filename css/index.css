@@ -54,6 +54,7 @@
   background: url("../images/shopBag.png") no-repeat;
   background-size: 0.22rem 0.22rem;
   right: 0.17rem;
+  z-index: 9999;
 }
 
 /*banner部分样式开始*/

@@ -78,7 +78,12 @@
 
     $('.search-box').on('touchstart',function () {
         location.href='searchPage.html';
-    })
+    });
+
+    $("#shop-bag").on('touchstart',function(event) {
+      event.stopPropagation();
+      location.href = 'cart.html';
+    });
 
 	//判断是否登录，有则显示，无则消失
 	if(!localStorage.token){
