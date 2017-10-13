@@ -42,9 +42,17 @@
 
       /*注意返回的好像是一个字符串*/
       return str;
-    }
+    },
     
-    /*创建订单页*/
+    /*获取查询字符串方法*/
+
+    getQueryString : function(name) {
+      var search = location.search.substr(1);
+      var reg = new RegExp('(&|^)'+name+'=([^&]*)(&|$)');
+      var r = search.match(reg);
+      if (r === null) return null;
+      return decodeURI(r[2]);
+    }
    
   };
 
@@ -127,6 +135,15 @@
     		"order_id" : order_id
     	}
     	$.post(this.config.API_PREFIX + "api_order.php?token=" + this.commonJs.getItem("token") + "&status=cancel",data,callback);
+    },
+
+    /*搜索商品的ajax*/
+    searchProduct : function(page,search_text,pagesize,callback){
+      var data = {
+        "search_text" : search_text,
+        "pagesize" : pagesize
+      }
+      $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
     }
 
   };
