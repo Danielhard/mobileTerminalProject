@@ -5,22 +5,59 @@ var RegisterBtn = document.querySelector("#register-button");
 var RegisterAccount = document.querySelector("#register-account");
 var oRegisterPassWord  = document.querySelector("#register-password-input");
 var oClean2 = document.querySelector("#clean-password2");
-console.log(oRegisterInput,oClean1,RegisterBtn,RegisterAccount,oRegisterPassWord);
-
+var oErr = document.querySelector("#err");
+var oUSerErr = document.querySelector("#username-err");
+var oPasswordErr = document.querySelector("#password-err");
+var oSumbitErr = document.querySelector("#sumbit-err");
+var oSameErr = document.querySelector("#same-err")
+console.log(oErr,oUSerErr,oPasswordErr,oSumbitErr);
 
 
 // register的Ajax请求 //
 
 RegisterBtn.addEventListener("touchstart",function(){
-	$$.Ajax.register(RegisterAccount.value,oRegisterInput.value,function(data){
-		
-		location.href='login.html'
-	})
+	if(oRegisterInput.value === oRegisterPassWord.value){
+		$$.Ajax.register(RegisterAccount.value,oRegisterInput.value,function(data){
+			oSumbitErr.innerText = data.message;
+			if(data.code=== 0){
+				location.href='login.html';
+			}else{
+				show(oSumbitErr);
+				hidden(oPasswordErr);
+				hidden(oUSerErr);
+			}
+		})
+	}else{
+		oSameErr.style.display = "block"
+	}
 })
 
 
+// 验证输入内容 //
 
 
+RegisterAccount.addEventListener("blur",function(){
+		var reg = /^\w{6,18}$/; 
+		if(reg.test(this.value)){
+		  hidden(oPasswordErr);
+		  hidden(oUSerErr);
+		  hidden(oSumbitErr);
+		}else{
+		  show(oUSerErr);
+		}
+})
+
+
+oRegisterInput.addEventListener("blur",function(){
+		var reg = /^\w{6,18}$/; 
+		if(reg.test(this.value)){
+		  hidden(oPasswordErr);
+		  hidden(oUSerErr);
+		  hidden(oSumbitErr);
+		}else{
+			show(oPasswordErr);
+		}
+})
 
 
 	oClean1.addEventListener("touchstart",function(){
@@ -60,4 +97,15 @@ function RegisterBtnChange(){
 	}else{
 		RegisterBtn.style.backgroundColor = "#cccccc";
 	}
+}
+
+
+
+
+// 显示和隐藏的方法 //
+function hidden(obj){
+	obj.style.display = "none"
+}
+function show(obj){
+	obj.style.display = "block"
 }
