@@ -86,15 +86,17 @@
         "consignee":name,
         "mobile":mobile,
         "district":district,
-        "address":address
+        "address":address,
+        'status':"add",
+        'token':this.commonJs.getItem(token)
       };
-      $.post(this.config.API_PREFIX+"api_useraddress.php?status=add&token=4fff8a6cdc33c4bb8eeb8d347adc9215",data,callback);
+      $.post(this.config.API_PREFIX+"api_useraddress.php?",data,callback);
     },
 
     /*获取收货地址*/
     getaddress:function (callback) {
       var data={
-        // 'token':this.commonJs.getItem(token),
+        'token':this.commonJs.getItem(token),
       };
       $.get(this.config.API_PREFIX+"api_useraddress.php?token=4fff8a6cdc33c4bb8eeb8d347adc9215",data,callback)
     },
@@ -104,11 +106,11 @@
       var data={
         'address_id':address_id,
         'status':"delete",
-        'token':"4fff8a6cdc33c4bb8eeb8d347adc9215"
+        'token':this.commonJs.getItem(token)
       };
       $.get(this.config.API_PREFIX+"api_useraddress.php",data,callback)
     },
-    
+
     /*我的订单*/
     fetchOrder : function(callback){
     	var data = {
