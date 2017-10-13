@@ -37,7 +37,6 @@
 
       /*注意返回的好像是一个字符串*/
       return str;
-
     },
       //用正则匹配查询字符串
     matchQueryString:function (str) {
@@ -48,9 +47,17 @@
         return null;
         return decodeURIComponent(backStr[2]);
 
+    },
+
+    /*获取查询字符串方法*/
+
+    getQueryString : function(name) {
+      var search = location.search.substr(1);
+      var reg = new RegExp('(&|^)'+name+'=([^&]*)(&|$)');
+      var r = search.match(reg);
+      if (r === null) return null;
+      return decodeURI(r[2]);
     }
-    
-    /*创建订单页*/
    
   };
   // 所有的ajax请求
@@ -116,6 +123,32 @@
         $.get(this.config.API_PREFIX+'api_goods.php',data,callback);
       },
 
+			/*商品详情*/
+    fetchDetail : function(goods_id,callback){
+   	 var data = {
+   		 'goods_id':goods_id
+   	 };
+   	 $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+    },
+    /*判断加入购物车*/
+   	fetchAddCar : function(goods_id,goods_number,callback){
+   		var data = {
+   			"goods_id" : goods_id,
+   			"number" : goods_number
+   		}
+   	 $.post(this.config.API_PREFIX + "api_cart.php?token=" + this.commonJs.getItem("token"),data,callback);
+   	},
+   	
+   	/*获取data长度*/
+		fetchData : function(callback){
+		 var data = {
+		 	"token" : this.commonJs.getItem("token")
+		 }
+   	 $.get(this.config.API_PREFIX + "api_cart.php",data,callback);
+			
+		},
+
+
 
     /*存储收货地址*/
     saveAddress:function (name,mobile,district,address,callback) {
@@ -149,8 +182,8 @@
     /*我的订单*/
     fetchOrder : function(callback){
     	var data = {
-    		"token" : "16018e0415fafbccf8762b12b2ea0e40"
-//  		"token" : this.commonJs.getItem("token")
+//  		"token" : "16018e0415fafbccf8762b12b2ea0e40"
+    		"token" : this.commonJs.getItem("token")
     	};
     	$.get(this.config.API_PREFIX + "api_order.php",data,callback);
     	/*删除订单*/
@@ -162,6 +195,15 @@
     		"order_id" : order_id
     	}
     	$.post(this.config.API_PREFIX + "api_order.php?token=" + this.commonJs.getItem("token") + "&status=cancel",data,callback);
+    },
+
+    /*搜索商品的ajax*/
+    searchProduct : function(page,search_text,pagesize,callback){
+      var data = {
+        "search_text" : search_text,
+        "pagesize" : pagesize
+      }
+      $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
     }
 
 
