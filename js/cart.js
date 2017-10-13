@@ -1,6 +1,6 @@
-jQuery(function ($) {
+jQuery(function($) {
 
-  $$.Ajax.seeUserCart(function(data){
+  $$.Ajax.seeUserCart(function(data) {
     var data = data['data'];
     var str = '';
     for (var i = 0; i < data.length; i++) {
@@ -28,139 +28,124 @@ jQuery(function ($) {
                         </div>
                     </div>
                 </div>
-            `
+            `;
     }
     $('.cart_tianjia').html(str);
     getSum();
   });
 
-    //var startPos
-    //var endPos
-    //var duration
-    //var nowY = 0
-    //var gheight
-    //var zhengsu
-    //var shuliang
-    //var geshu
-
-    $('body').on('touchend', function () {
-        var target = event.target || event.srcElement;
-        if (target.innerText == '-') {
-            var idjian = target.dataset.id
-            var dange = $('#' + idjian + '').html();
-            dange--;
-            if (dange < 1) {
-                dange = 1
-            }
-            $('#' + idjian + '').html(dange);
-            $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token,
-                {
-                    goods_id: idjian,
-                    number: dange
-                },
-                function (json) {
-                    if (json.code == 0) {
-                        var goods_price = parseInt($('.' + idjian + '').html());
-                        $('.' + idjian + '').next().next().html(goods_price * dange);
-                        getSum()
-                    }
-                }
-            )
+  $('body').on('touchend', function() {
+    var target = event.target || event.srcElement;
+    if (target.innerText == '-') {
+      var idjian = target.dataset.id;
+      var dange = $('#' + idjian + '').html();
+      dange--;
+      if (dange < 1) {
+        dange = 1;
+      }
+      $('#' + idjian + '').html(dange);
+      $$.Ajax.deleteCartProduct(idjian, dange, function(data) {
+        if (data.code == 0) {
+          var goods_price = parseInt($('.' + idjian + '').html());
+          $('.' + idjian + '').next().next().html(goods_price * dange);
+          getSum();
         }
-        if (target.innerText == '+') {
-            var idjian = target.dataset.id;
-            var dange = $('#' + idjian + '').html();
-            dange++;
-            if (dange > 10) {
-                dange = 10
-            }
-            $('#' + idjian + '').html(dange);
-            $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token,
-                {
-                    goods_id: idjian,
-                    number: dange
-                },
-                function (json) {
-                    if (json.code == 0) {
-                        var goods_price = parseInt($('.' + idjian + '').html());
-                        $('.' + idjian + '').next().next().html(goods_price * dange);
-                        getSum();
-                    }
-                }
-            )
-        }
-        if (target.innerText == 'X') {
-            var x_id = target.dataset.id;
-            console.log(x_id);
-            $('.cart_confirm').css('display', 'block');
-            $('.cart_ok').attr('data-id', '' + x_id + '')
-        }
-        if (target.innerText == '取消') {
-            $('.cart_confirm').css('display', 'none')
-        }
-        if (target.innerText == '确定') {
-            var q_id = target.dataset.id;
-            var number = 0;
-
-            $$.Ajax.deleteCartProduct(q_id,number,function(data){
-              if (data.code == 0) {
-                $('.' + q_id + '').parent().parent().parent().parent().parent().remove();
-                getSum();
-              }
-            });
-            $('.cart_confirm').css('display', 'none');
-        }
-
-        if (target.innerText == '清空') {
-            $('.cart_confirm1').css('display', 'block');
-        }
-        if (target.innerText == '否') {
-            $('.cart_confirm1').css('display', 'none');
-        }
-        if (target.innerText == '是') {
-            var oGoodsIds = document.querySelectorAll('span[name=goods_id]');
-            for (var i = 0; i < oGoodsIds.length; i++) {
-                var td = oGoodsIds[i];
-                var goods_id = parseInt(td.innerText);
-                var number = 0;
-                (function (td) {
-                    $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token,
-                        {
-                            goods_id: goods_id,
-                            number: number
-                        },
-                        function (json) {
-                            if (json.code == 0) {
-                                var tr = td.parentNode.parentNode.parentNode.parentNode.parentNode;
-                                tr.parentNode.removeChild(tr);
-                                getSum();
-                            }
-                        }
-                    )
-                })(td)
-            }
-            $('.cart_confirm1').css('display', 'none')
-        }
-        if(target.className == 'cart_bianji'){
-            if(target.innerText == '编辑'){
-                 $('.cart_delete').css('display','inline-block')
-                  target.innerText = '完成'
-            }else{
-                $('.cart_delete').css('display','none')
-                target.innerText = '编辑'
-            }
-           
-           
-        }
-        
-    })
-    function getSum() {
-        var oSums = document.querySelectorAll('span[name=sum]');
-        var sum = 0;
-        for (var i = 0; i < oSums.length; i++) {
-            sum += parseInt(oSums[i].innerText);
-        }
-        localStorage.sum = sum
-        $('#cart_sum').html(sum)
+      });
     }
-})
+    if (target.innerText == '+') {
+      var idjian = target.dataset.id;
+      var dange = $('#' + idjian + '').html();
+      dange++;
+      if (dange > 10) {
+        dange = 10;
+      }
+      $('#' + idjian + '').html(dange);
+      $$.Ajax.deleteCartProduct(idjian, dange, function(data) {
+        if (data.code == 0) {
+          var goods_price = parseInt($('.' + idjian + '').html());
+          $('.' + idjian + '').next().next().html(goods_price * dange);
+          getSum();
+        }
+      });
+    }
+    if (target.innerText == 'X') {
+      var x_id = target.dataset.id;
+      $('.cart_confirm').css('display', 'block');
+      $('.cart_ok').attr('data-id', '' + x_id + '');
+    }
+    if (target.innerText == '取消') {
+      $('.cart_confirm').css('display', 'none');
+    }
+    if (target.innerText == '确定') {
+      var q_id = target.dataset.id;
+      var number = 0;
+
+      $$.Ajax.deleteCartProduct(q_id, number, function(data) {
+        if (data.code == 0) {
+          $('.' + q_id + '').
+              parent().
+              parent().
+              parent().
+              parent().
+              parent().
+              remove();
+          getSum();
+        }
+      });
+      $('.cart_confirm').css('display', 'none');
+    }
+
+    if (target.innerText == '清空') {
+      $('.cart_confirm1').css('display', 'block');
+    }
+    if (target.innerText == '否') {
+      $('.cart_confirm1').css('display', 'none');
+    }
+    if (target.innerText == '是') {
+      var oGoodsIds = document.querySelectorAll('span[name=goods_id]');
+      for (var i = 0; i < oGoodsIds.length; i++) {
+        var td = oGoodsIds[i];
+        var goods_id = parseInt(td.innerText);
+        var number = 0;
+        (function(td) {
+          $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' +
+              localStorage.token,
+              {
+                goods_id: goods_id,
+                number: number,
+              },
+              function(json) {
+                if (json.code == 0) {
+                  var tr = td.parentNode.parentNode.parentNode.parentNode.parentNode;
+                  tr.parentNode.removeChild(tr);
+                  getSum();
+                }
+              },
+          );
+        })(td);
+      }
+      $('.cart_confirm1').css('display', 'none');
+    }
+    if (target.className == 'cart_bianji') {
+      if (target.innerText == '编辑') {
+        $('.cart_delete').css('display', 'inline-block');
+        target.innerText = '完成';
+      } else {
+        $('.cart_delete').css('display', 'none');
+        target.innerText = '编辑';
+      }
+
+    }
+
+  });
+
+  function getSum() {
+    var oSums = document.querySelectorAll('span[name=sum]');
+    var sum = 0;
+    for (var i = 0; i < oSums.length; i++) {
+      sum += parseInt(oSums[i].innerText);
+    }
+    localStorage.sum = sum;
+    $('#cart_sum').html(sum);
+  }
+});
