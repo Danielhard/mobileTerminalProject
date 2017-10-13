@@ -48,7 +48,7 @@
         return decodeURIComponent(backStr[2]);
 
     },
-    
+
     /*获取查询字符串方法*/
 
     getQueryString : function(name) {
