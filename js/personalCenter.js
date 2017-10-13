@@ -23,7 +23,6 @@
              oInfo.style.display='block';
          },200);
      })
-    console.log(oUser_login_name);
     oUser_login_name.innerText='用户名：'+localStorage.username;
     oUpInfo_username.innerText=localStorage.username;
     if(!localStorage.username){
@@ -36,12 +35,23 @@
          location.href='address.html';
     })
 
-  //判断是否登录，有则跳转到购物车页面，没有则返回登陆
-  $('#cart').on('touchstart',function () {
-    if(localStorage.token) {
-      location.href = 'cart.html';
-    } else{
-      location.href='login.html';
-    }
-  });
-  })()
+
+    $('.myCart').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'cart.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+    $('.myOrder').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'orderPage.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+
+
+})();

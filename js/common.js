@@ -113,6 +113,15 @@
         var data={};
         $.get(this.config.API_PREFIX+'api_cat.php',data,callback);
       },
+      //获取商品列表页
+      fetchProductListPage:function(cat_id,page,pagesize,callback){
+         var data={
+             'cat_id':cat_id,
+             'page':page,
+             'pagesize':pagesize
+         };
+        $.get(this.config.API_PREFIX+'api_goods.php',data,callback);
+      },
 
 			/*商品详情*/
     fetchDetail : function(goods_id,callback){
@@ -200,7 +209,7 @@
     /*查看购物车的ajax*/
     seeUserCart : function(callback){
       var data = {
-        "token" : "d6a31dcc182c6d3c725d74820f5b2093"
+        "token" : this.commonJs.getItem("token")
       };
       $.get(this.config.API_PREFIX + "api_cart.php",data,callback);
     },
@@ -211,7 +220,7 @@
         goods_id : goods_id,
         number : number
       }
-      $.post(this.config.API_PREFIX + "api_cart.php?token=d6a31dcc182c6d3c725d74820f5b2093",data,callback);
+      $.post(this.config.API_PREFIX + "api_cart.php?token=" + this.commonJs.getItem("token"),data,callback);
     }
 
 

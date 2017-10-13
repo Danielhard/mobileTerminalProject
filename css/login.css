@@ -17,7 +17,7 @@ body,html{
 	width: 0.2rem;
 	height: 0.2rem;
 	margin: 10px 0 0 20px;
-	background: url(../images/return.png);
+	background: url(../images/back.png);
 	background-size:.2rem .2rem;
 	background-repeat: no-repeat;
 }
@@ -45,24 +45,24 @@ body,html{
 	border: none;
 	border-bottom: 1px solid #f5f5f5;
 	font-size: 12px;	
-	margin-bottom:20px ;
+	margin-bottom:.2rem ;
 }
 .login-form > .login-account{
 	color: #cccccc;
 }
 .login-form > .login-password{
-	height: 0.2rem;
+	height: 0.3rem;
 	width: 100%;
 	border-bottom: 1px solid #f5f5f5;
-	margin-bottom:.2rem;
+	margin-bottom:20px ;
 }
 .login-form > .login-password >.login-password-input{
-	height: 90%;
+	height: 0.2rem;
 	border: none;
 	font-size: 12px;
-	margin-bottom:20px ;
 	float: left;
 	color: #ccc;
+	display: block;
 }
 .login-form > .login-password > .clean-password{
 	width: .2rem;
@@ -70,7 +70,7 @@ body,html{
 	float: right;
 	background: url(../images/clear@2x.png) no-repeat;
 	background-size:.16rem .16rem ;
-	margin-right: 10px;
+	margin-right: .1rem;
 	display: none;
 }
 .login-form > .login-password > .visual{
@@ -105,4 +105,12 @@ body,html{
 .login-form-bottom > .user-register{
 	font-size: 12px;
 	float: right;
+}
+.Login-err{
+	font-size: 12px;
+	color: red;
+	width: 100%;
+	height: .15rem;
+	display: none;
+	margin-bottom: .2rem;
 }
