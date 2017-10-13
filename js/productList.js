@@ -4,8 +4,7 @@
     var canadd = false;
     var cat_id = $$.matchQueryString('cat_id');
     var page = 1;
-     console.log(cat_id);
-    function oFetchProductListPage(page, pagesize) {
+     function oFetchProductListPage(page, pagesize) {
         $$.Ajax.fetchProductListPage(cat_id, page, pagesize, function (data) {
             console.log(data);
             var dataArr = data['data'];
@@ -15,11 +14,8 @@
             }
             canadd = true;
             oProduct_title.innerText=localStorage.cat_name;
-            localStorage.removeItem('cat_name');
         });
     };
-
-
     oFetchProductListPage();
     $(window).on('scroll', function (event) {
         if (!canadd) {
@@ -29,7 +25,6 @@
         var maxHeight = $(document).height() - $(window).height();
         event.preventDefault();
         var nowHeight = $(document).scrollTop();
-
         if (nowHeight / maxHeight >= 0.8) {
             console.log(page);
             page++;
@@ -37,7 +32,6 @@
             canadd = false;
         }
     });
-
     // 叶家辉
     //console.log($$.getQueryString("search_text"));
     var search_text = $$.getQueryString('search_text');
@@ -50,14 +44,12 @@
             for (var i = 0; i < dataArr.length; i++) {
                 $('#pro-list').append($$.createDom(dataArr[i]));
             }
-
             $('#click-add-more').css({
                 'margin-top': 10,
             });
         });
     }
     searchProductData(1, 10);
-
     $('#click-add-more').on('touchstart', function() {
         number++;
         searchProductData(number, 10);

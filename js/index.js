@@ -60,6 +60,24 @@
            location.href='login.html';
      }
    });
+   $('.myCart').on('touchstart',function(){
+       if(localStorage.username) {
+           location.href = 'cart.html';
+       } else{
+           location.href='login.html';
+       }
+
+   });
+    $('.myOrder').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'orderPage.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+
+
     $('.search-box').on('touchstart',function () {
         location.href='searchPage.html';
     })
