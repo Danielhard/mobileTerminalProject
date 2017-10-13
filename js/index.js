@@ -64,5 +64,18 @@
         location.href='searchPage.html';
     })
 
-
+	//判断是否登录，有则显示，无则消失
+	if(!localStorage.token){
+  	$('.totalNum').hide();
+  }else{
+  	$('.totalNum').show();
+  }
+  function showPro() {
+    // 获取购物车数据根据购物车中的data数组来判断商品个数
+    $$.Ajax.fetchData(function(data){
+    	console.log(data);
+    	$('.totalNum')[0].innerText = data.data.length;
+    });
+  }
+  showPro();
   })();

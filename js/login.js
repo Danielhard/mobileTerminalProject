@@ -2,6 +2,7 @@ var oInput = document.querySelector("#login-password-input");
 var oClean = document.querySelector("#clean-password");
 var oLiginAccount = document.querySelector("#login-account");
 var oLiginBtn = document.querySelector("#login-button");
+var oLiginErr = document.querySelector("#Login-err");
 
 // login的Ajax请求 //
 oLiginBtn.addEventListener("touchstart", function() {
@@ -10,11 +11,16 @@ oLiginBtn.addEventListener("touchstart", function() {
 		
 		$$.setItem("token",dataObj['token']);
 		$$.setItem("username",dataObj['username']);
-		if(localStorage.backurl) {
-			location.href = localStorage.backurl;
-		} else {
-			location.href = 'index.html';
+		if(data.code ===0){
+			if(localStorage.backurl) {
+				location.href = localStorage.backurl;
+			} else {
+				location.href = 'index.html';
+			}
+		}else{
+			oLiginErr.style.display = "block";
 		}
+		
 	})
 })
 

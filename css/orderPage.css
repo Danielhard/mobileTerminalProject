@@ -1,9 +1,9 @@
 html {
-  background-color: #e5e5e5;
+  background-color: #f7f7f7;
 }
 .orderindex {
 	width: 100%;
-	background-color: #e5e5e5;
+	background-color: #f7f7f7;
 	position: relative;
 }
 .top-context {
@@ -16,7 +16,7 @@ html {
 	width: 100%;
 	height: 0.44rem;
 	background-color: #fff;
-	border-bottom: 1px solid #f1f1f1;
+	border-bottom: 1px solid #f7f7f7;
 	box-sizing: border-box;
 }
 .ordertop .back {
@@ -97,8 +97,14 @@ table, thead, tr {
 	font-size: 0.12rem;
 	background-color: #FFFFFF;
 	margin-top: 0.1rem;	
-	border: 1px solid #9b885f;
+
 	box-sizing: border-box;
+}
+table {
+	border: 2px solid #9b885f;
+}
+thead {
+	border: 1px solid #9b885f;
 }
 th, td {
 	width: 33.33%;
@@ -111,6 +117,7 @@ td{
 	height: 1rem;
 	text-align: center;
 	position: relative;
+	border-bottom: 1px dotted #9b885f;
 }
 td img {
 	width: 0.9rem;
@@ -146,7 +153,7 @@ td i {
 	display: block;
 	text-align: center;
 	width: 50%;
-	padding: 2px;
+	padding: 2px 2px 2px 30%;
 	border-color: #9b885f;
 	border-radius: 3px;
 	color: #9b885f;
