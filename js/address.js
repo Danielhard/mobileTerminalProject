@@ -145,12 +145,21 @@
     oCity.style.display = "none";
     oRegion.style.display = "none";
     oText1.style.color = "#afa081";
-    if (text2) {
-      oNav.removeChild(text2);
-    }
-    if (text3) {
-      oNav.removeChild(text3);
-    }
+    var allDiv = oNav.querySelectorAll("div");
+      if(allDiv.length===3){
+        oNav.removeChild(text2);
+        oNav.removeChild(text3);
+      }else if(allDiv.length===2){
+        oNav.removeChild(text2);
+      }else
+      {return;}
+
+    // if (text2) {
+    //   oNav.removeChild(text2);
+    // }
+    // if (text3) {
+    //   oNav.removeChild(text3);
+    // }
   }, false);
 
 // 重新选择城市
