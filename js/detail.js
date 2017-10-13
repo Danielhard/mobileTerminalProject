@@ -150,7 +150,6 @@
     $$.Ajax.fetchData(function(data){
     	console.log(data);
     	$('.totalNum')[0].innerText = data.data.length;
-    	console.log($('.totalNum').innerText);
     });
   }
   
