@@ -25,7 +25,7 @@
     addMessage.style.display = "none";
   }, false);
   oAgree.addEventListener('touchstart', function () {
-    location.href = 'orderPage.html';
+    location.href = 'checkout.html';
   }, false);
 // 默认按钮
   var open = document.querySelectorAll("span")[1];
