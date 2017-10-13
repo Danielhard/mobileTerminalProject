@@ -243,4 +243,20 @@
   float: right;
   font-size: .12rem;
 }
-
+.totalNum {
+  position: absolute;
+  display: inline-block;
+  width: .15rem;
+  height: .15rem;
+  border: 1px solid #fff;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: #f33;
+  color: #fff;
+  font-size: 10px;
+  text-align: center;
+  line-height: 15px;
+  right: 8px;
+  top: 5px;
+  display: none;
+}

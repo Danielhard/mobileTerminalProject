@@ -114,6 +114,32 @@
         $.get(this.config.API_PREFIX+'api_cat.php',data,callback);
       },
 
+			/*商品详情*/
+    fetchDetail : function(goods_id,callback){
+   	 var data = {
+   		 'goods_id':goods_id
+   	 };
+   	 $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+    },
+    /*判断加入购物车*/
+   	fetchAddCar : function(goods_id,goods_number,callback){
+   		var data = {
+   			"goods_id" : goods_id,
+   			"number" : goods_number
+   		}
+   	 $.post(this.config.API_PREFIX + "api_cart.php?token=" + this.commonJs.getItem("token"),data,callback);
+   	},
+   	
+   	/*获取data长度*/
+		fetchData : function(callback){
+		 var data = {
+		 	"token" : this.commonJs.getItem("token")
+		 }
+   	 $.get(this.config.API_PREFIX + "api_cart.php",data,callback);
+			
+		},
+
+
 
     /*存储收货地址*/
     saveAddress:function (name,mobile,district,address,callback) {
@@ -147,8 +173,8 @@
     /*我的订单*/
     fetchOrder : function(callback){
     	var data = {
-    		"token" : "16018e0415fafbccf8762b12b2ea0e40"
-//  		"token" : this.commonJs.getItem("token")
+//  		"token" : "16018e0415fafbccf8762b12b2ea0e40"
+    		"token" : this.commonJs.getItem("token")
     	};
     	$.get(this.config.API_PREFIX + "api_order.php",data,callback);
     	/*删除订单*/
