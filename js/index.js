@@ -10,7 +10,7 @@
 
 
   // 首页热门商品数据请求
-  var page = 1;      // 初始时请求第一页的数据
+  var page = 2;      // 初始时请求第一页的数据
   var canadd = false;
   function fetHotProductMethod(page,pagesize){
     $$.Ajax.fetchHotProduct(page,pagesize,function(data){
@@ -21,7 +21,7 @@
       canadd = true;
     });
   }
-  fetHotProductMethod();
+  fetHotProductMethod(page,10);
   $(window).on('scroll',function(event){
 
     if(!canadd){
@@ -39,8 +39,6 @@
       canadd = false;
     }
   });
-
-  //
 
 
   // 底部导航的js代码,点击那个跳转到哪一页并改变相应的li的样式,并进行相应的页面跳转
@@ -60,6 +58,16 @@
            location.href='login.html';
      }
    });
+
+  //判断是否登录，有则跳转到购物车页面，没有则返回登陆
+  $('#cart').on('touchstart',function () {
+    if(localStorage.token) {
+      location.href = 'cart.html';
+    } else{
+      location.href='login.html';
+    }
+  });
+
     $('.search-box').on('touchstart',function () {
         location.href='searchPage.html';
     })

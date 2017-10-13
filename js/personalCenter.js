@@ -35,4 +35,13 @@
     oAddressJump.addEventListener('touchstart',function () {
          location.href='address.html';
     })
+
+  //判断是否登录，有则跳转到购物车页面，没有则返回登陆
+  $('#cart').on('touchstart',function () {
+    if(localStorage.token) {
+      location.href = 'cart.html';
+    } else{
+      location.href='login.html';
+    }
+  });
   })()
