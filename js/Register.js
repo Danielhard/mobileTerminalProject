@@ -5,26 +5,24 @@ var RegisterBtn = document.querySelector("#register-button");
 var RegisterAccount = document.querySelector("#register-account");
 var oRegisterPassWord  = document.querySelector("#register-password-input");
 var oClean2 = document.querySelector("#clean-password2");
-var oErr = document.querySelector("#err");
 var oUSerErr = document.querySelector("#username-err");
 var oPasswordErr = document.querySelector("#password-err");
-var oSumbitErr = document.querySelector("#sumbit-err");
-var oSameErr = document.querySelector("#same-err")
-console.log(oErr,oUSerErr,oPasswordErr,oSumbitErr);
+var oSameErr = document.querySelector("#same-err");
 
 
 // register的Ajax请求 //
 
 RegisterBtn.addEventListener("touchstart",function(){
+	console.log(oRegisterInput.value);
+	console.log(oRegisterPassWord.value);
 	if(oRegisterInput.value === oRegisterPassWord.value){
 		$$.Ajax.register(RegisterAccount.value,oRegisterInput.value,function(data){
-			oSumbitErr.innerText = data.message;
+			console.log(data);
 			if(data.code=== 0){
 				location.href='login.html';
 			}else{
-				show(oSumbitErr);
-				hidden(oPasswordErr);
-				hidden(oUSerErr);
+				var message = data['message'];
+				confirm(message);
 			}
 		})
 	}else{
@@ -41,7 +39,6 @@ RegisterAccount.addEventListener("blur",function(){
 		if(reg.test(this.value)){
 		  hidden(oPasswordErr);
 		  hidden(oUSerErr);
-		  hidden(oSumbitErr);
 		}else{
 		  show(oUSerErr);
 		}
@@ -53,7 +50,6 @@ oRegisterInput.addEventListener("blur",function(){
 		if(reg.test(this.value)){
 		  hidden(oPasswordErr);
 		  hidden(oUSerErr);
-		  hidden(oSumbitErr);
 		}else{
 			show(oPasswordErr);
 		}

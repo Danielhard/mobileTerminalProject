@@ -16,7 +16,6 @@
     $$.Ajax.fetchHotProduct(page,pagesize,function(data){
       var dataArr = data['data'];
       for(var i = 0; i < dataArr.length; i ++){
-        console.log(dataArr[i]);
         $("#pro-list").append($$.createDom(dataArr[i]));
       }
       canadd = true;
@@ -41,6 +40,8 @@
     }
   });
 
+  //
+
 
   // 底部导航的js代码,点击那个跳转到哪一页并改变相应的li的样式,并进行相应的页面跳转
   $('.index-nav-list').each(function(i,item){
@@ -58,10 +59,23 @@
       } else{
            location.href='login.html';
      }
-   })
+   });
     $('.search-box').on('touchstart',function () {
         location.href='searchPage.html';
     })
 
-
+	//判断是否登录，有则显示，无则消失
+	if(!localStorage.token){
+  	$('.totalNum').hide();
+  }else{
+  	$('.totalNum').show();
+  }
+  function showPro() {
+    // 获取购物车数据根据购物车中的data数组来判断商品个数
+    $$.Ajax.fetchData(function(data){
+    	console.log(data);
+    	$('.totalNum')[0].innerText = data.data.length;
+    });
+  }
+  showPro();
   })();

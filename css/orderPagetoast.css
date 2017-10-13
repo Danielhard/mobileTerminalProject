@@ -13,4 +13,5 @@
   opacity: .9;
   filter: alpha(opacity=20);
   color: #FFFFFF;
+  z-index: 999;
 }
