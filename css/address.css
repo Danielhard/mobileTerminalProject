@@ -4,6 +4,8 @@ body{
   color:black;
 }
 .address-box-head{
+  position: fixed;
+  top:0;
   width: 100%;
   height: 44px;
   background-color: white;
@@ -27,12 +29,14 @@ body{
   line-height: 44px;
 }
 .save{
-  float: right;
-  padding-right: 15px;
+  position: absolute;
+  right: 15px;
+  top: 0;
   line-height: 44px;
 }
 .address-box-context{
   width:100%;
+  margin-top: 54px;
 }
 .default,.name-box,.phone-box,.area-box,.postcode-box,.detail-address-box{
   width: 100%;
@@ -99,6 +103,7 @@ body{
   float: right;
 }
 .address-nav{
+  margin-top: 44px;
   width: 100%;
   height: 43px;
   background-color: white;
@@ -135,16 +140,95 @@ body{
 .address-box{
   overflow: hidden;
 }
-.address-choose{
+.address-choose,.hidden,.city,.region{
   display: none;
 }
-.hidden{
-  display:block;
+.add-box{
+  width: 100%;
+  height: 2rem;
+  margin-top: 40%;
+  text-align: center;
+  overflow: hidden;
 }
-.city,.region{
+.add-text{
+  color:grey;
+  margin-top: 0.5rem;
+}
+.add-button{
+  width: 80%;
+  height: 0.5rem;
+  background-color: #9b895e;
+  margin-top: 0.3rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+}
+.address-box-foot{
+  position: fixed;
   display: none;
+  width: 100%;
+  height: 0.6rem;
+  background-color: white;
+  bottom: 0;
+  left:0
 }
-
+.newadd-button{
+  height: 0.4rem;
+  width: 44.5%;
+  margin-left: 4%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #9b895e;
+  color: #9b895e;
+  background-color: white;
+  margin-top: 0.1rem;
+}
+.agree{
+  height: 0.4rem;
+  width: 44.5%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #9b895e;
+  background-color: #9b895e;
+  color: white;
+  margin-left: 2%;
+}
+#address-piece{
+  display: none;
+  width: 100%;
+  padding: 44px 0 0.6rem 0;
+}
+.information{
+  height:0.9rem;
+  width: 100%;
+  background-color: white;
+  margin-top: 10px;
+  overflow: hidden;
+}
+.adds{
+  float: left;
+  display: block;
+  width: 45%;
+  text-align: left;
+  margin-top: 15px;
+  font-size: 16px;
+  padding-left: 15px;
+}
+.adds1{
+  text-align: center;
+}
+.adds2{
+  width: 75%;
+}
+.delete{
+  float: right;
+  border: none;
+  background-color: #9b895e;
+  color: white;
+  margin-right: 15px;
+  margin-top: 30px;
+}
 
 
 

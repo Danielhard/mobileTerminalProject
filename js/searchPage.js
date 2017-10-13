@@ -5,14 +5,15 @@
         event=event||window.event;
           event.preventDefault();
           if(event.keyCode===13){
-              if(!localStorage.value){
-                  localStorage.value=$(this).val();
-              }else{
-                  localStorage.value += '&' + $(this).val();
-              }
-              location.href='goodsSearch.html?search_text='+$(this).val();
+              //if(!localStorage.value){
+              //    localStorage.value=$(this).val();
+              //}else{
+              //    localStorage.value += '&' + $(this).val();
+              //}
+              location.href='productList.html?search_text='+$(this).val();
           }
      })
+
     //获取商品列表
       $$.Ajax.fetchProductList(function (data) {
           console.log(data);
@@ -22,6 +23,6 @@
                var obj=dataList[i]
               oListUl.innerHTML+=`<li class="hotList"><a href="goodsList.html?cat_id=$                                             {obj.cat_id}">${obj.cat_name}</a></li>`
            }
-      })
+        })
+   })();
 
- })()
