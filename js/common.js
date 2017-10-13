@@ -5,6 +5,8 @@
     this.token = null;
     this.username = '';
     this.password = '';
+    this.username2 = '';
+    this.password2 = '';
     this.Ajax = null;
     this.init();
   }
@@ -70,7 +72,17 @@
       };
       $.post(this.config.API_PREFIX + "api_user.php",data,callback);
     },
-
+    
+    /*注册*/
+		register : function(username2,password2,callback){
+			var data = {
+				"status" : 'register',
+        "username" : username2,
+        "password" : password2
+			};
+			$.post(this.config.API_PREFIX + "api_user.php",data,callback);
+		},
+		
     /*获取热门商品*/
     fetchHotProduct : function(page,pagesize,callback){
       var data = {
