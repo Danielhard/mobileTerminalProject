@@ -87,18 +87,16 @@
         "mobile":mobile,
         "district":district,
         "address":address,
-        'status':"add",
-        'token':this.commonJs.getItem(token)
       };
-      $.post(this.config.API_PREFIX+"api_useraddress.php?",data,callback);
+      $.post(this.config.API_PREFIX+"api_useraddress.php?status=add&token=" + this.commonJs.getItem('token') ,data,callback);
     },
 
     /*获取收货地址*/
     getaddress:function (callback) {
       var data={
-        'token':this.commonJs.getItem(token),
+        'token':this.commonJs.getItem('token'),
       };
-      $.get(this.config.API_PREFIX+"api_useraddress.php?token=4fff8a6cdc33c4bb8eeb8d347adc9215",data,callback)
+      $.get(this.config.API_PREFIX+"api_useraddress.php?",data,callback)
     },
 
     /*删除收货地址*/
@@ -106,7 +104,7 @@
       var data={
         'address_id':address_id,
         'status':"delete",
-        'token':this.commonJs.getItem(token)
+        'token':this.commonJs.getItem('token')
       };
       $.get(this.config.API_PREFIX+"api_useraddress.php",data,callback)
     },

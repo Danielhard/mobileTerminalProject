@@ -183,7 +183,6 @@
     var name = document.querySelector("#name").value;
     var phone = document.querySelector("#tel").value;
     var detail = document.querySelector("#detail-address").value;
-    console.log(phone);
     var areadetail = document.querySelector("#area-detail");
     var areadetailTxt = areadetail.innerText;
     piece.style.display="block";
@@ -192,7 +191,7 @@
     addBox.style.display = "none";
     addFoot.style.display = "block";
     $$.Ajax.saveAddress(name, phone, areadetailTxt, detail, function (data) {
-      // console.log(data);
+      console.log(data);
       $$.Ajax.getaddress(function (data) {
         var dataArr = data['data'];
         console.log(dataArr);
