@@ -42,6 +42,16 @@
 
       /*注意返回的好像是一个字符串*/
       return str;
+    },
+
+      //用正则匹配查询字符串
+    matchQueryString:function (str) {
+        var queryString = location.search.substr(1);
+        var reg = new RegExp("(^|&)" + str + "=([^&]*)(&|$)");
+        var backStr = queryString.match(reg);
+        if(backStr === null)
+        return null;
+        return decodeURIComponent(backStr[2]);
     }
   };
 
@@ -75,7 +85,16 @@
         "pagesize" : pagesize
       };
       $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
-    }
+    },
+     //获取搜索商品
+      fetchSearchProduct:function(callback){
+          var searchText=this.commonJs.matchQueryString('search_text');
+           var data={
+               "search_text":searchText
+           };
+          $.get(this.config.API_PREFIX+'api_goods.php',data,callback);
+        }
+     
 
   };
 
