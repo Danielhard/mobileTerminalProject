@@ -204,6 +204,23 @@
         "pagesize" : pagesize
       }
       $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+    },
+
+    /*查看购物车的ajax*/
+    seeUserCart : function(callback){
+      var data = {
+        "token" : this.commonJs.getItem("token")
+      };
+      $.get(this.config.API_PREFIX + "api_cart.php",data,callback);
+    },
+
+    /*删除购物车商品*/
+    deleteCartProduct : function(goods_id,number,callback){
+      var data = {
+        goods_id : goods_id,
+        number : number
+      }
+      $.post(this.config.API_PREFIX + "api_cart.php?token=" + this.commonJs.getItem("token"),data,callback);
     }
 
 
