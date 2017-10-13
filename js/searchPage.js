@@ -5,15 +5,12 @@
         event=event||window.event;
           event.preventDefault();
           if(event.keyCode===13){
-              //if(!localStorage.value){
-              //    localStorage.value=$(this).val();
-              //}else{
-              //    localStorage.value += '&' + $(this).val();
-              //}
-              location.href='productList.html?search_text='+$(this).val();
+          location.href='productList.html?search_text='+$(this).val();
           }
-     })
-
+       });
+      $('.hot-con').on('touchstart',function (event) {
+          localStorage.cat_name=event.target.innerText;
+       })
     //获取商品列表
       $$.Ajax.fetchProductList(function (data) {
           console.log(data);
@@ -23,9 +20,7 @@
               var obj=dataList[i];
               console.log(obj['cat_id']);
               oListUl.innerHTML+=`<li class="hotList"><a href="productList.html?cat_id=${obj.cat_id}">${obj.cat_name}</a></li>`;
-              localStorage.cat_name=obj['cat_name'];
-
-           }
+            }
         })
    })();
 
