@@ -106,6 +106,15 @@
         var data={};
         $.get(this.config.API_PREFIX+'api_cat.php',data,callback);
       },
+      //获取商品列表页
+      fetchProductListPage:function(cat_id,page,pagesize,callback){
+         var data={
+             'cat_id':cat_id,
+             'page':page,
+             'pagesize':pagesize
+         };
+        $.get(this.config.API_PREFIX+'api_goods.php',data,callback);
+      },
 
 
     /*存储收货地址*/
