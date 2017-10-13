@@ -7,303 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/base.css">
-    <style>
-        .cart_flux {
-            height: auto;
-            width: 100%;
-            left: 0;
-            bottom: 0;
-            text-align: center;
-        }
-
-        .cart_shop {
-            background-color: #f2f2f2;
-            position: fixed;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            overflow: hidden;
-            z-index: 2;
-        }
-
-        .cart_toptap {
-            display: flex;
-            top: 0;
-            left: 0;
-            height: 0.44rem;
-            background-color: #fff;
-            width: 100%;
-            -webkit-box-align: center;
-            align-items: center;
-            -webkit-box-pack: center;
-            justify-content: center;
-            font-size: 0.16rem;
-            color: #333;
-            position: fixed;
-            z-index: 10;
-        }
-
-        .cart_return {
-            width: 0.22rem;
-            height: 0.22rem;
-            background: url(images/return.png) no-repeat;
-            background-size: 0.22rem 0.22rem;
-            position: absolute;
-            left: 0.1rem;
-            top: 0.1rem;
-            z-index: 2;
-        }
-
-        .cart_text {
-            flex: 1;
-            -webkit-box-flex: 1;
-            height: 0.15rem;
-            position: relative;
-            line-height: 0.15rem;
-        }
-
-        .cart_bianji {
-            position: absolute;
-            right: 0.15rem;
-        }
-
-        .cart_toptap::after {
-            content: ' ';
-            display: block;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            border-top: 1px solid rgba(0, 0, 0, 0.5);
-        }
-
-        .cart_btm {
-            height: 0.6rem;
-            background-color: #fff;
-            display: flex;
-            -webkit-box-pack: justify;
-            justify-content: space-between;
-            -webkit-box-align: center;
-            align-items: center;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        .cart_bleft {
-            display: flex;
-            margin-left: 0.13rem;
-            -webkit-box-flex: 1;
-            align-items: center;
-        }
-
-        .cart_pic {
-            text-align: left;
-        }
-
-        .cart_sprice {
-            font-size: 0.15rem;
-            color: #9b885f;
-            margin-bottom: 0.045rem;
-        }
-
-        .cart_bright {
-            width: 1.15rem;
-            height: 0.4rem;
-            border-radius: 4px;
-            font-size: 0.15rem;
-            display: flex;
-            -webkit-box-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            align-items: center;
-            background: #9b885f;
-            margin-right: 0.15rem;
-            color: #fff;
-        }
-
-        .cart_sela {
-            display: inline-block;
-            width: 0.6rem;
-            height: 0.3rem;
-            vertical-align: middle;
-            margin-right: 0.3rem;
-            border-radius: 5px;
-            outline: none;
-            background-color: #9b885f;
-            color: #fff;
-        }
-
-        .cart_btm::after {
-            content: ' ';
-            position: absolute;
-            display: block;
-            top: 0;
-            left: 0;
-            border-top: 1px solid #ccc;
-            width: 100%;
-        }
-
-        .cart_tianjia {
-            position: relative;
-            background-color: #fff;
-            border-top: 1px solid #ccc;
-            margin-top: 0.1rem;
-            text-align: left;
-        }
-
-        .cart_good {
-            position: relative;
-        }
-
-        .cart_good1 {
-            display: flex;
-            justify-content: left;
-            -webkit-box-align: center;
-            align-items: center;
-            padding: 0.1rem 0;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .cart_delete {
-            display: inline-block;
-            width: 0.22rem;
-            height: 0.22rem;
-            vertical-align: middle;
-            margin: 0 0.08rem 0 0.15rem;
-        }
-
-        .cart_good2 {
-            width: calc(100% - 0.45rem);
-            display: flex;
-        }
-
-        .cart_good3 {
-            width: 0.9rem;
-            height: 0.9rem;
-        }
-
-        .cart_good3 img {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            display: block;
-
-        }
-
-        .cart_good4 {
-            width: calc(100% - 1.15rem);
-            padding-left: 0.1rem;
-            padding-right: 0.15rem;
-            position: relative;
-        }
-
-        .cart_name {
-            padding-top: 0.03rem;
-            padding-bottom: 0.065rem;
-            width: 100%;
-            overflow: hidden;
-            font-size: 0.12rem;
-            line-height: 0.16rem;
-        }
-
-        .cart_detail {
-            padding-bottom: 0.065rem;
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            font-size: 0.12rem;
-        }
-
-        .cart_type {
-            color: #999;
-            margin-bottom: 0.21rem;
-            width: 100%;
-            font-size: 0.12rem;
-        }
-
-        .cart_price {
-            font-family: Arial-Regular;
-            font-size: 0.12rem;
-            color: #9b885f;
-            bottom: 0.03rem;
-
-            position: absolute;
-        }
-
-        .cart_numbtn {
-            position: absolute;
-            right: 0.1rem;
-            bottom: 0;
-            display: flex;
-        }
-
-        .cart_jian {
-            width: 0.22rem;
-            height: 0.22rem;
-            display: inline-block;
-            border: 1px solid #ccc;
-            font-size: 0.20rem;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.555);
-        }
-
-        .cart_center {
-            width: 0.38rem;
-            height: 0.22rem;
-            font-size: 0.12rem;
-            text-align: center;
-            line-height: 0.22rem;
-            display: inline-block;
-            background-color: transparent;
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .cart_jjj {
-            width: 0.22rem;
-            height: 0.22rem;
-            display: inline-block;
-            border: 1px solid #ccc;
-            font-size: 0.20rem;
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.555);
-        }
-
-        #cart_move {
-            position: relative;
-        }
-
-        .kongge {
-            color: transparent;
-        }
-    </style>
+    <link rel="stylesheet" href="css/cart.css">
 </head>
 
 <body>
     <div class="cart_flux">
         <div class="cart_shop">
             <div class="cart_toptap">
-                <a href="index.html" class="cart_return"></a>
+                <a href="#" class="cart_return" ontouchstart="javascript :history.back(1);"></a>
                 <div class="cart_text">
                     购物袋
-                    <span>()</span>
-                    <span class="cart_bianji">编辑</span>
+                    <span></span>
+                    <button class="cart_bianji">编辑</button>
                 </div>
             </div>
             <div id="cart_move">
                 <div style="height:0.44rem"></div>
-                <div style="padding-bottom:0.6rem">
+                <div style="padding-bottom:0.6rem" style="position:relative">
                     <div class="cart_tianjia">
 
                     </div>
                 </div>
-
             </div>
-
             <div class="cart_btm">
                 <div class="cart_bleft">
                     <button class="cart_sela">清空</button>
@@ -313,143 +38,40 @@
                         </p>
                     </div>
                 </div>
-                <div class="cart_bright">
-                    去结算
-                </div>
+                <a href="address.html">
+                    <div class="cart_bright">
+                        去结算
+                    </div>
+                </a>
+
+
             </div>
         </div>
     </div>
+    <div class="cart_confirm">
+        <div class="cart_title">
+            确认要删除吗?
+        </div>
+        <span class="cart_ok">
+            确定
+        </span>
+        <span class="cart_cancel">
+            取消
+        </span>
+    </div>
+    <div class="cart_confirm1">
+        <div class="cart_title">
+            是否要清空整个购物车吗？
+        </div>
+        <span class="cart_ok">
+            是
+        </span>
+        <span class="cart_cancel">
+            否
+        </span>
+    </div>
     <script src="frame/jquery-3.2.1.min.js"></script>
-    <script>
-        jQuery(function ($) {
-            $.get('http://h6.duchengjiu.top/shop/api_cart.php', { token: localStorage.token }, function (json) {
-                console.log(json)
-                var data = json.data
-                var str = ''
-                for (var i = 0; i < data.length; i++) {
-                    var obj = data[i]
-                    obj.goods_price = parseInt(obj.goods_price)
-                    obj.goods_sum = obj.goods_price * obj.goods_number
-                    str += `
-                    <div class="cart_good">
-                            <div class="cart_good1">
-                                <button class='cart_delete'>X</button>
-                                <div class="cart_good2">
-                                    <div class="cart_good3">
-                                        <img src="${obj.goods_thumb}">
-                                    </div>
-                                    <div class="cart_good4">
-                                        <p class="cart_name">${obj.goods_name}</p>
-                                        <p class="cart_type">商品ID:${obj.goods_id}</p>
-                                        <p class="cart_price" >单:￥<span class='${obj.goods_id}'>${obj.goods_price}</span><span class='kongge'>sda</span>总:￥<span name="sum">${obj.goods_sum}</span></p>
-                                        <div class="cart_numbtn">
-                                            <span class="cart_jian" data-id="${obj.goods_id}">-</span>
-                                            <span class="cart_center" data-id="${obj.goods_id}" id="${obj.goods_id}">1</span>
-                                            <span class="cart_jjj" data-id="${obj.goods_id}">+</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `
-                }
-                $('.cart_tianjia').html(str)
-                getSum()
-            })
-            var startPos
-            var endPos
-            var duration
-            var nowY = 0
-            var gheight
-            var zhengsu
-            var shuliang
-            var geshu
-            document.addEventListener('touchstart', function (event) {
-                event = event || window.event
-                var target = event.target || event.srcElement
-                var touch = event.targetTouches[0]
-                startPos = touch.pageY - nowY
-            })
-            document.addEventListener('touchmove', function (event) {
-                event = event || window.event
-                var target = event.target || event.srcElement
-                shuliang = $('.cart_tianjia').children('div').length
-                if (event.targetTouches.length > 1 && shuliang <= 5) return
-                var touch = event.targetTouches[0]
-                nowY = touch.pageY - startPos
-                var moving = document.getElementById('cart_move')
-                geshu = shuliang - 5
-                zhengsu = Math.abs(nowY)
-                gheight = $('.cart_good').height()
-                if (nowY > 0) {
-                    nowY = 0
-                } else if (zhengsu > ((gheight * geshu) + 10)) {
-                    nowY = -((gheight * geshu) + 10)
-                }
-                moving.style.top = nowY + 'px'
-            })
-            $('body').on('touchend', function () {
-                var target = event.target || event.srcElement;
-                if (target.innerText == '-') {
-                    var idjian = target.dataset.id
-                    var dange = $('#' + idjian + '').html()
-                    dange--
-                    if (dange < 1) {
-                        dange = 1
-                    }
-                    $('#' + idjian + '').html(dange)
-                    $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token,
-                        {
-                            goods_id: idjian,
-                            number: dange
-                        },
-                        function (json) {
-                            if (json.code == 0) {
-                                var goods_price = parseInt($('.' + idjian + '').html())
-                                $('.' + idjian + '').next().next().html(goods_price * dange)
-                                getSum()
-                            }
-                        }
-                    )
-                }
-                if (target.innerText == '+') {
-                    var idjian = target.dataset.id
-                    var dange = $('#' + idjian + '').html()
-                    dange++
-                    if (dange > 10) {
-                        dange = 10
-                    }
-                    $('#' + idjian + '').html(dange)
-                    $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token,
-                        {
-                            goods_id: idjian,
-                            number: dange
-                        },
-                        function (json) {
-                            if (json.code == 0) {
-                                var goods_price = parseInt($('.' + idjian + '').html())
-                                $('.' + idjian + '').next().next().html(goods_price * dange)
-                                getSum()
-                            }
-                        }
-                    )
-                }
-            })
-            window.onload = function () {
-
-            }
-            function getSum() {
-                var oSums = document.querySelectorAll('span[name=sum]');
-                console.log(oSums[0].innerText)
-                var sum = 0;
-                for (var i = 0; i < oSums.length; i++) {
-                    sum += parseInt(oSums[i].innerText);
-                }
-                localStorage.sum = sum
-                $('#cart_sum').html(sum)
-            }
-        })
-    </script>
+    <script src="js/cart.js"></script>
 </body>
 
 </html>
