@@ -25,7 +25,7 @@
     addMessage.style.display = "none";
   }, false);
   oAgree.addEventListener('touchstart', function () {
-    location.href = 'personalCenter.html';
+    location.href = 'checkout.html';
   }, false);
 // 默认按钮
   var open = document.querySelectorAll("span")[1];
@@ -58,6 +58,7 @@
   oReturnPersonal.addEventListener('touchstart', function () {
     location.href = 'personalCenter.html';
   }, false);
+
   var oLi = document.getElementsByTagName("li");
   var oNav = document.querySelector("#address-nav");
   var oText1 = document.querySelector("#text1");
@@ -183,7 +184,6 @@
     var name = document.querySelector("#name").value;
     var phone = document.querySelector("#tel").value;
     var detail = document.querySelector("#detail-address").value;
-    console.log(phone);
     var areadetail = document.querySelector("#area-detail");
     var areadetailTxt = areadetail.innerText;
     piece.style.display="block";
@@ -192,22 +192,8 @@
     addBox.style.display = "none";
     addFoot.style.display = "block";
     $$.Ajax.saveAddress(name, phone, areadetailTxt, detail, function (data) {
-      // console.log(data);
-      $$.Ajax.getaddress(function (data) {
-        var dataArr = data['data'];
-        console.log(dataArr);
-        for (var i = dataArr.length - 1; i >= 0; i--) {
-          var obj = dataArr[i];
-          piece.innerHTML += `
-                   <li class="information" data-id="${obj.address_id}">
-                    <span class="adds">${obj.consignee}</span>
-                    <span class="adds adds1">${obj.mobile}</span>
-                    <span class="adds adds2">${obj.district}-${obj.address}</span><br/>
-                    <input class="delete" type="button" value="删除" data-id="${obj.address_id}">
-                   </li>
-              `;
-        }
-      });
+      console.log(data);
+      getaddressMethod();
     });
   });
   
@@ -226,19 +212,47 @@
           }
         })
       }
-    var oAddressLis = piece.querySelectorAll('li');
-    for (var i = 0; i < oAddressLis.length; i++) {
-      oAddressLis[i].classList.remove('selected');
-    }
+
+      // 选择一个地址
     if (target.nodeName === 'LI') {
       //点击LI元素选择一个收货地址
-      selected_address_id = parseInt(target.dataset.id);
-      target.classList.add('selected');
+      target.className = "touch";
+      localStorage.address_id = parseInt(target.dataset.id);
+      console.log(localStorage.address_id);
     } else if (target.nodeName === 'SPAN') {
-      selected_address_id = parseInt(target.parentNode.dataset.id);
-      target.parentNode.classList.add('selected');
+      target.parentNode.className = "touch";
+      localStorage.address_id = parseInt(target.parentNode.dataset.id);
+      console.log(localStorage.address_id);
     }
   });
+
+  // 获取地址方法
+  function getaddressMethod() {
+    $$.Ajax.getaddress(function (data) {
+      console.log(data);
+      var dataArr = data['data'];
+      var addressCount = dataArr.length;
+      console.log(dataArr);
+      for (var i = dataArr.length - 1; i >= 0; i--) {
+        var obj = dataArr[i];
+        piece.innerHTML += `
+                   <li class="information" data-id="${obj.address_id}">
+                    <span class="adds">${obj.consignee}</span>
+                    <span class="adds adds1">${obj.mobile}</span>
+                    <span class="adds adds2">${obj.district}-${obj.address}</span><br/>
+                    <input class="delete" type="button" value="删除" data-id="${obj.address_id}">
+                   </li>
+              `;
+      }
+
+      if(addressCount!=0){
+        piece.style.display = "block";
+        addBox.style.display = "none";
+        addFoot.style.display = "block";
+      }
+    });
+  }
+  getaddressMethod();
 })();
 
 

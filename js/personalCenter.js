@@ -23,7 +23,6 @@
              oInfo.style.display='block';
          },200);
      })
-    console.log(oUser_login_name);
     oUser_login_name.innerText='用户名：'+localStorage.username;
     oUpInfo_username.innerText=localStorage.username;
     if(!localStorage.username){
@@ -35,4 +34,24 @@
     oAddressJump.addEventListener('touchstart',function () {
          location.href='address.html';
     })
-  })()
+
+
+    $('.myCart').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'cart.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+    $('.myOrder').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'orderPage.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+
+
+})();
