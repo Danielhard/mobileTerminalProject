@@ -5,8 +5,6 @@
     this.token = null;
     this.username = '';
     this.password = '';
-    this.username2 = '';
-    this.password2 = '';
     this.Ajax = null;
     this.init();
   }
@@ -44,17 +42,10 @@
 
       /*注意返回的好像是一个字符串*/
       return str;
-    },
-
-      //用正则匹配查询字符串
-    matchQueryString:function (str) {
-        var queryString = location.search.substr(1);
-        var reg = new RegExp("(^|&)" + str + "=([^&]*)(&|$)");
-        var backStr = queryString.match(reg);
-        if(backStr === null)
-        return null;
-        return decodeURIComponent(backStr[2]);
     }
+    
+    /*创建订单页*/
+   
   };
 
   // 所有的ajax请求
@@ -79,17 +70,7 @@
       };
       $.post(this.config.API_PREFIX + "api_user.php",data,callback);
     },
-    
-    /*注册*/
-		register : function(username2,password2,callback){
-			var data = {
-				"status" : 'register',
-        "username" : username2,
-        "password" : password2
-			};
-			$.post(this.config.API_PREFIX + "api_user.php",data,callback);
-		},
-		
+
     /*获取热门商品*/
     fetchHotProduct : function(page,pagesize,callback){
       var data = {
@@ -98,15 +79,25 @@
       };
       $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
     },
-     //获取搜索商品
-      fetchSearchProduct:function(callback){
-          var searchText=this.commonJs.matchQueryString('search_text');
-           var data={
-               "search_text":searchText
-           };
-          $.get(this.config.API_PREFIX+'api_goods.php',data,callback);
-        }
-     
+    
+    
+    /*我的订单*/
+    fetchOrder : function(callback){
+    	var data = {
+    		"token" : "16018e0415fafbccf8762b12b2ea0e40"
+//  		"token" : this.commonJs.getItem("token")
+    	};
+    	$.get(this.config.API_PREFIX + "api_order.php",data,callback);
+    	/*删除订单*/
+//  	$.post(this.config.API_PREFIX + "api_order.php?token=16018e0415fafbccf8762b12b2ea0e40&status=cancel",data,callback);
+    },
+    /*删除订单*/
+    delOrder : function(order_id,callback) {
+    	var data = {
+    		"order_id" : order_id
+    	}
+    	$.post(this.config.API_PREFIX + "api_order.php?token=" + this.commonJs.getItem("token") + "&status=cancel",data,callback);
+    }
 
   };
 
