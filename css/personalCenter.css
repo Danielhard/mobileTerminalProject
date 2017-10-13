@@ -223,7 +223,7 @@ html,body{
     position:absolute;
     left:0;
     top:0;
-    background:url(../images/return.png) no-repeat;
+    background:url(../images/back.png) no-repeat;
     background-size:.22rem;
     background-position: 15px 11px;
     padding:11px 15px;
@@ -302,3 +302,7 @@ html,body{
      font-size: 18px;
      line-height: .36rem;
  }
+.upInfo_btm .center_logout a{
+    text-decoration: none;
+
+}

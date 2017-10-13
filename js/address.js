@@ -14,19 +14,32 @@ var oArea =document.querySelector("#area-box");
 var oHidden = document.querySelector("#hidden");
 var oChoose = document.querySelector("#address-choose");
 
+var oReturnPersonal=document.querySelector('#returnPersonal');
+
+
 // 城区选择
+
 oArea.addEventListener("touchstart",function () {
   oHidden.style.display="none";
   oChoose.style.display="block";
-},false);
+ },false);
 
 // 返回地址信息添加
 var oBack = document.querySelector("#back");
 oBack.addEventListener("touchstart",function () {
-  oChoose.style.display="none";
-  oHidden.style.display="block";
+      oChoose.style.display="none";
+      oHidden.style.display="block";
 },false);
+
+// 收货地址返回个人中心
+oReturnPersonal.addEventListener('touchstart',function () {
+    location.href='personalCenter.html';
+
+});
+var beijing = document.querySelector("#beijing");
+
 var oLi = document.getElementsByTagName("li");
+
 var oNav = document.querySelector("#address-nav");
 var oText1 = document.querySelector("#text1");
 var oProvince = document.querySelectorAll("ul")[0];

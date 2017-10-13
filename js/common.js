@@ -45,9 +45,6 @@
       /*注意返回的好像是一个字符串*/
       return str;
     }
-
-
-
   };
 
   // 所有的ajax请求
@@ -95,5 +92,5 @@
   };
 
 
-  window.$$ = new CommonJs();
+    window.$$ = new CommonJs();
 })();
