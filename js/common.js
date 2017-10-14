@@ -97,7 +97,15 @@
         "page" : page,
         "pagesize" : pagesize
       };
-      $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+      //$.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+
+      $.ajax({
+        url : this.config.API_PREFIX + "api_goods.php?format=jsonp&callback=cb",
+        data : data,
+        dataType :'jsonp',
+        jsonpCallback : 'cb',
+        success: callback
+      })
     },
 
      //获取搜索商品

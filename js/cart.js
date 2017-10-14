@@ -1,6 +1,10 @@
 jQuery(function($) {
 
   $$.Ajax.seeUserCart(function(data) {
+    if(data['code'] !== 0){
+      toast(data['message'],3000);
+      return ;
+    }
     var data = data['data'];
     var str = '';
     for (var i = 0; i < data.length; i++) {
@@ -147,5 +151,6 @@ jQuery(function($) {
     }
     localStorage.sum = sum;
     $('#cart_sum').html(sum);
+    localStorage.setItem('cartgoods_sum',''+sum+'');
   }
 });
