@@ -226,9 +226,9 @@
     } else if (target.nodeName === 'SPAN') {
       localStorage.address_id = parseInt(target.parentNode.dataset.id);
       selected_address_id=parseInt(target.parentNode.dataset.id);
-      localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
-      localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
-      localStorage.setItem('district',''+target.childNodes[5].innerText+'')
+      localStorage.setItem('consignee',''+target.parentNode.childNodes[1].innerText+'')
+      localStorage.setItem('mobile',''+target.parentNode.childNodes[3].innerText+'')
+      localStorage.setItem('district',''+target.parentNode.childNodes[5].innerText+'')
       target.parentNode.classList.add('touch');
     }
   });
