@@ -6,6 +6,7 @@
         autoplay:5000/*每隔5秒自动播放*/
    }) ;
    showPro();
+   /*显示隐藏的商品信息*/
    var oShop = document.querySelector('.wuda');
    var oBlack = document.querySelector('.redcardbg');
    var oClose = document.querySelector('.close');
@@ -31,13 +32,14 @@
 		setTimeout(function(){$oBlackDetail.hide();},500);
    	oBlack.style.display = 'none';
    });
-   
+   /*判断选取的颜色*/
    $('.pt_list_son').each(function(i,item){
    	$(this).on('touchstart',function(){
 		  $(this).addClass('ptsel').siblings().removeClass('ptsel'); 
 		  $('.regular')[0].innerHTML = '颜色:' + $('.ptsel').html();
    	})
    });
+   /*判断选取的数量*/
    var idx = 1;
    $('.productParm .ptcon .pt_list_num .numbtn .right').on('touchstart',function(){
    	idx++;
@@ -53,7 +55,7 @@
    	$('.hide_price b').html(idx);
    });
    
-   
+   /*$$.Ajax获取商品数据*/
    $.getQueryString = function(name) {
      var search = location.search.substr(1);
      var reg = new RegExp('(&|^)'+name+'=([^&]*)(&|$)');
@@ -97,7 +99,7 @@
     }
 		
 	});
-
+	/*判断添加的购物车*/
 	$('.ptbtn')[0].addEventListener('touchstart',function(event) {
     event = event || window.event;
     var target = event.target || event.srcElement;
@@ -144,7 +146,7 @@
     }
    
   }) 
-  
+  /*判断购物车中的数量，显示在红色小圈上*/
   function showPro() {
     // 获取购物车数据根据购物车中的data数组来判断商品个数
     $$.Ajax.fetchData(function(data){
