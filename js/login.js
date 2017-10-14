@@ -20,8 +20,7 @@ oLiginBtn.addEventListener("touchstart", function() {
 		}else{
 			oLiginErr.style.display = "block";
 		}
-		
-	})
+		})
 })
 
 // 图标点击事件 //
