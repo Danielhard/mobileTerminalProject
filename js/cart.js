@@ -2,18 +2,18 @@ jQuery(function ($) {
 
 
 
-  $$.Ajax.seeUserCart(function(data) {
-    if(data['code'] !== 0){
-      toast(data['message'],3000);
-      return ;
-    }
-    var data = data['data'];
-    var str = '';
-    for (var i = 0; i < data.length; i++) {
-      var obj = data[i];
-      obj.goods_price = parseInt(obj.goods_price);
-      obj.goods_sum = obj.goods_price * obj.goods_number;
-      str += `
+    $$.Ajax.seeUserCart(function (data) {
+        if (data['code'] !== 0) {
+            toast(data['message'], 3000);
+            return;
+        }
+        var data = data['data'];
+        var str = '';
+        for (var i = 0; i < data.length; i++) {
+            var obj = data[i];
+            obj.goods_price = parseInt(obj.goods_price);
+            obj.goods_sum = obj.goods_price * obj.goods_number;
+            str += `
             <div class="cart_good">
                     <div class="cart_good1">
                         <button class='cart_delete' data-id="${obj.goods_id}"><span data-id="${obj.goods_id}">X</span></button>
@@ -36,64 +36,6 @@ jQuery(function ($) {
                     </div>
                     `
 
-        }
-        $('.cart_tianjia').html(str);
-        getSum();
-    });
-
-
-    $('body').on('touchend', function () {
-        var target = event.target || event.srcElement;
-        if (target.innerText == '-') {
-            var idjian = target.dataset.id
-            var dange = $('#' + idjian + '').html();
-            dange--;
-            if (dange < 1) {
-                dange = 1
-            }
-            $('#' + idjian + '').html(dange);
-            $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token,
-                {
-                    goods_id: idjian,
-                    number: dange
-                },
-                function (json) {
-                    if (json.code == 0) {
-                        var goods_price = parseInt($('.' + idjian + '').html());
-                        $('.' + idjian + '').next().next().html(goods_price * dange);
-                        getSum()
-                    }
-                }
-            )
-        }
-        if (target.innerText == '+') {
-            var idjian = target.dataset.id;
-            var dange = $('#' + idjian + '').html();
-            dange++;
-            if (dange > 10) {
-                dange = 10
-            }
-            $('#' + idjian + '').html(dange);
-            $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' + localStorage.token,
-                {
-                    goods_id: idjian,
-                    number: dange
-                },
-                function (json) {
-                    console.log(json)
-                    if (json.code == 0) {
-                        var goods_price = parseInt($('.' + idjian + '').html());
-                        $('.' + idjian + '').next().next().html(goods_price * dange);
-                        getSum();
-                    }
-                }
-            )
-        }
-        if (target.innerText == 'X') {
-            var x_id = target.dataset.id;
-            console.log(x_id);
-            $('.cart_confirm').css('display', 'block');
-            $('.cart_ok').attr('data-id', '' + x_id + '');
         }
         $('.cart_tianjia').html(str);
         getSum();
@@ -210,8 +152,6 @@ jQuery(function ($) {
         }
 
     })
-
-
     function getSum() {
         var oSums = document.querySelectorAll('span[name=sum]');
         var sum = 0;
@@ -221,6 +161,6 @@ jQuery(function ($) {
         localStorage.sum = sum;
         $('#cart_sum').html(sum);
 
-        localStorage.setItem('cartgoods_sum',''+sum+'');
-  }
+        localStorage.setItem('cartgoods_sum', '' + sum + '');
+    }
 });
