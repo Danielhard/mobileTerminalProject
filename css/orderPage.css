@@ -1,9 +1,9 @@
 html {
-  background-color: #f7f7f7;
+  background-color: #f1f1f1;
 }
 .orderindex {
 	width: 100%;
-	background-color: #f7f7f7;
+	background-color: #f1f1f1;
 	position: relative;
 }
 .top-context {
@@ -12,17 +12,22 @@ html {
 	top: 0;
 	z-index: 999;
 }
+.order_no_body {
+	width: 100%;
+	height: 100%;
+	background-color: #F1F1F1;
+}
 .ordertop, .order_nav {
 	width: 100%;
 	height: 0.44rem;
 	background-color: #fff;
-	border-bottom: 1px solid #f7f7f7;
+	border-bottom: 1px solid #f1f1f1;
 	box-sizing: border-box;
 }
 .ordertop .back {
 	width: 0.22rem;
 	height: 0.22rem;
-	background: url(../images/return.png) no-repeat;
+	background: url(../images/back.png) no-repeat;
 	background-size: 0.22rem 0.22rem;
 	position: absolute;
 	top: 0.1rem;
@@ -45,7 +50,7 @@ html {
 	height: 100%;
 	margin: 0 12.5%;
 }
-.order_nav .nav_list a {
+.order_nav .nav_list span {
 	display: block;
 	width: 33.33%;
 	height: 100%;
@@ -62,6 +67,12 @@ html {
     margin-top: 0.88rem;
     bottom: 0;
     border-top: 1px solid #f7f7f7;
+}
+.order_context > div{
+	display: none;
+}
+.order_context > div.current{
+	display: block;
 }
 .order_no_top {
 	width: 1.5rem;
@@ -89,7 +100,7 @@ html {
 	color: #FFFFFF;
 	background-color: #9b885f;
 	border-radius: 0.03rem;
-	padding: 0.1rem 0;
+	padding: 0.1rem ;
 }
 table, thead, tr {
 	width: 90%;

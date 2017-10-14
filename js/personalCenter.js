@@ -23,16 +23,46 @@
              oInfo.style.display='block';
          },200);
      })
-    console.log(oUser_login_name);
     oUser_login_name.innerText='用户名：'+localStorage.username;
     oUpInfo_username.innerText=localStorage.username;
     if(!localStorage.username){
         oUser_login_name.innerText='用户名：';
         oUpInfo_username.innerText='';
     }
-
     // 个人中心管理收货地址
     oAddressJump.addEventListener('touchstart',function () {
          location.href='address.html';
-    })
-  })()
+    });
+
+    $('.myCart').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'cart.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+    $('.myOrder').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'orderPage.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+
+    //叶家辉
+  $('#birthday').on('touchstart',function(){
+    var birthdayInput = document.querySelector('#birthday > input');
+    console.log(birthdayInput);
+    birthdayInput.ontouchstart = function(){};
+    birthdayInput.ontouchstart();
+
+    birthdayInput.onblur = function(){
+      console.log($(this).val());
+      $("#birthday > .up_r_tx").html($(this).val() + '<div class="more"></div>');
+    }
+  })
+
+
+})();

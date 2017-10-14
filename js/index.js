@@ -10,10 +10,11 @@
 
 
   // 首页热门商品数据请求
-  var page = 1;      // 初始时请求第一页的数据
+  var page = 2;      // 初始时请求第一页的数据
   var canadd = false;
   function fetHotProductMethod(page,pagesize){
     $$.Ajax.fetchHotProduct(page,pagesize,function(data){
+      console.log(data);
       var dataArr = data['data'];
       for(var i = 0; i < dataArr.length; i ++){
         $("#pro-list").append($$.createDom(dataArr[i]));
@@ -21,7 +22,7 @@
       canadd = true;
     });
   }
-  fetHotProductMethod();
+  fetHotProductMethod(page,10);
   $(window).on('scroll',function(event){
 
     if(!canadd){
@@ -33,14 +34,11 @@
     var nowHeight = $(document).scrollTop();
 
     if(nowHeight / maxHeight >= 0.8) {
-      console.log(page);
       page ++ ;
       fetHotProductMethod(page,20);
       canadd = false;
     }
   });
-
-  //
 
 
   // 底部导航的js代码,点击那个跳转到哪一页并改变相应的li的样式,并进行相应的页面跳转
@@ -60,9 +58,32 @@
            location.href='login.html';
      }
    });
+
+   $('.myCart').on('touchstart',function(){
+       if(localStorage.username) {
+           location.href = 'cart.html';
+       } else{
+           location.href='login.html';
+       }
+
+   });
+    $('.myOrder').on('touchstart',function(){
+        if(localStorage.username) {
+            location.href = 'orderPage.html';
+        } else{
+            location.href='login.html';
+        }
+
+    });
+
     $('.search-box').on('touchstart',function () {
         location.href='searchPage.html';
-    })
+    });
+
+    $("#shop-bag").on('touchstart',function(event) {
+      event.stopPropagation();
+      location.href = 'cart.html';
+    });
 
 	//判断是否登录，有则显示，无则消失
 	if(!localStorage.token){
@@ -73,7 +94,7 @@
   function showPro() {
     // 获取购物车数据根据购物车中的data数组来判断商品个数
     $$.Ajax.fetchData(function(data){
-    	console.log(data);
+    	//console.log(data);
     	$('.totalNum')[0].innerText = data.data.length;
     });
   }

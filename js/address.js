@@ -24,9 +24,7 @@
     oHidden.style.display = "block";
     addMessage.style.display = "none";
   }, false);
-  oAgree.addEventListener('touchstart', function () {
-    location.href = 'personalCenter.html';
-  }, false);
+
 // 默认按钮
   var open = document.querySelectorAll("span")[1];
   open.addEventListener("touchstart", function () {
@@ -58,6 +56,7 @@
   oReturnPersonal.addEventListener('touchstart', function () {
     location.href = 'personalCenter.html';
   }, false);
+
   var oLi = document.getElementsByTagName("li");
   var oNav = document.querySelector("#address-nav");
   var oText1 = document.querySelector("#text1");
@@ -192,21 +191,7 @@
     addFoot.style.display = "block";
     $$.Ajax.saveAddress(name, phone, areadetailTxt, detail, function (data) {
       console.log(data);
-      $$.Ajax.getaddress(function (data) {
-        var dataArr = data['data'];
-        console.log(dataArr);
-        for (var i = dataArr.length - 1; i >= 0; i--) {
-          var obj = dataArr[i];
-          piece.innerHTML += `
-                   <li class="information" data-id="${obj.address_id}">
-                    <span class="adds">${obj.consignee}</span>
-                    <span class="adds adds1">${obj.mobile}</span>
-                    <span class="adds adds2">${obj.district}-${obj.address}</span><br/>
-                    <input class="delete" type="button" value="删除" data-id="${obj.address_id}">
-                   </li>
-              `;
-        }
-      });
+      getaddressMethod();
     });
   });
   
@@ -225,19 +210,63 @@
           }
         })
       }
+    // 选择一个地址
     var oAddressLis = piece.querySelectorAll('li');
     for (var i = 0; i < oAddressLis.length; i++) {
-      oAddressLis[i].classList.remove('selected');
+      oAddressLis[i].classList.remove('touch');
     }
     if (target.nodeName === 'LI') {
       //点击LI元素选择一个收货地址
-      selected_address_id = parseInt(target.dataset.id);
-      target.classList.add('selected');
+      localStorage.address_id = parseInt(target.dataset.id);
+      selected_address_id=parseInt(target.dataset.id);
+      localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
+      localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
+      localStorage.setItem('district',''+target.childNodes[5].innerText+'')
+      target.classList.add('touch');
     } else if (target.nodeName === 'SPAN') {
-      selected_address_id = parseInt(target.parentNode.dataset.id);
-      target.parentNode.classList.add('selected');
+      localStorage.address_id = parseInt(target.parentNode.dataset.id);
+      selected_address_id=parseInt(target.parentNode.dataset.id);
+      localStorage.setItem('consignee',''+target.parentNode.childNodes[1].innerText+'')
+      localStorage.setItem('mobile',''+target.parentNode.childNodes[3].innerText+'')
+      localStorage.setItem('district',''+target.parentNode.childNodes[5].innerText+'')
+      target.parentNode.classList.add('touch');
     }
   });
+  oAgree.addEventListener('touchstart', function () {
+    if(selected_address_id===0){
+      alert('请选择一个收货地址',1000);
+      return;
+    }
+    location.href = 'checkout.html';
+  }, false);
+
+  // 获取地址方法
+  function getaddressMethod() {
+    $$.Ajax.getaddress(function (data) {
+      console.log(data);
+      var dataArr = data['data'];
+      var addressCount = dataArr.length;
+      console.log(dataArr);
+      piece.innerHTML='';
+      for (var i = dataArr.length - 1; i >= 0; i--) {
+        var obj = dataArr[i];
+        piece.innerHTML += `
+                   <li class="information" data-id="${obj.address_id}">
+                    <span class="adds">${obj.consignee}</span>
+                    <span class="adds adds1">${obj.mobile}</span>
+                    <span class="adds adds2">${obj.district}-${obj.address}</span><br/>
+                    <input class="delete" type="button" value="删除" data-id="${obj.address_id}">
+                   </li>
+              `;
+      }
+      if(addressCount!=0){
+        piece.style.display = "block";
+        addBox.style.display = "none";
+        addFoot.style.display = "block";
+      }
+    });
+  }
+getaddressMethod();
 })();
 
 

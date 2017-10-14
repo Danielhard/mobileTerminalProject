@@ -97,7 +97,15 @@
         "page" : page,
         "pagesize" : pagesize
       };
-      $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+      //$.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+
+      $.ajax({
+        url : this.config.API_PREFIX + "api_goods.php?format=jsonp&callback=cb",
+        data : data,
+        dataType :'jsonp',
+        jsonpCallback : 'cb',
+        success: callback
+      })
     },
 
      //获取搜索商品
@@ -182,13 +190,11 @@
     /*我的订单*/
     fetchOrder : function(callback){
     	var data = {
-//  		"token" : "16018e0415fafbccf8762b12b2ea0e40"
     		"token" : this.commonJs.getItem("token")
     	};
     	$.get(this.config.API_PREFIX + "api_order.php",data,callback);
-    	/*删除订单*/
-//  	$.post(this.config.API_PREFIX + "api_order.php?token=16018e0415fafbccf8762b12b2ea0e40&status=cancel",data,callback);
     },
+
     /*删除订单*/
     delOrder : function(order_id,callback) {
     	var data = {
@@ -204,7 +210,30 @@
         "pagesize" : pagesize
       }
       $.get(this.config.API_PREFIX + "api_goods.php",data,callback);
+    },
+
+    /*查看购物车的ajax*/
+    seeUserCart : function(callback){
+      var data = {
+        "token" : this.commonJs.getItem("token")
+      };
+      $.get(this.config.API_PREFIX + "api_cart.php",data,callback);
+    },
+
+    /*删除购物车商品,其实就是更新购物车*/
+    deleteCartProduct : function(goods_id,number,callback){
+      var data = {
+        goods_id : goods_id,
+        number : number
+      }
+      $.post(this.config.API_PREFIX + "api_cart.php?token=" + this.commonJs.getItem("token"),data,callback);
+    },
+
+    /*更新购物车*/
+    updateCart : function(goods_id){
+
     }
+
 
 
   };
