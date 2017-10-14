@@ -1,6 +1,5 @@
-jQuery(function($) {
+jQuery(function ($) {
 
-<<<<<<< HEAD
     $$.Ajax.seeUserCart(function (data) {
         var data = data['data'];
         var str = '';
@@ -9,16 +8,6 @@ jQuery(function($) {
             obj.goods_price = parseInt(obj.goods_price);
             obj.goods_sum = obj.goods_price * obj.goods_number;
             str += `
-=======
-  $$.Ajax.seeUserCart(function(data) {
-    var data = data['data'];
-    var str = '';
-    for (var i = 0; i < data.length; i++) {
-      var obj = data[i];
-      obj.goods_price = parseInt(obj.goods_price);
-      obj.goods_sum = obj.goods_price * obj.goods_number;
-      str += `
->>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
             <div class="cart_good">
                     <div class="cart_good1">
                         <button class='cart_delete' data-id="${obj.goods_id}"><span data-id="${obj.goods_id}">X</span></button>
@@ -39,7 +28,6 @@ jQuery(function($) {
                         </div>
                     </div>
                 </div>
-<<<<<<< HEAD
             `
         }
         $('.cart_tianjia').html(str);
@@ -107,61 +95,14 @@ jQuery(function($) {
             console.log(x_id);
             $('.cart_confirm').css('display', 'block');
             $('.cart_ok').attr('data-id', '' + x_id + '')
-=======
-            `;
-    }
-    $('.cart_tianjia').html(str);
-    getSum();
-  });
-
-  $('body').on('touchend', function() {
-    var target = event.target || event.srcElement;
-    if (target.innerText == '-') {
-      var idjian = target.dataset.id;
-      var dange = $('#' + idjian + '').html();
-      dange--;
-      if (dange < 1) {
-        dange = 1;
-      }
-      $('#' + idjian + '').html(dange);
-      $$.Ajax.deleteCartProduct(idjian, dange, function(data) {
-        if (data.code == 0) {
-          var goods_price = parseInt($('.' + idjian + '').html());
-          $('.' + idjian + '').next().next().html(goods_price * dange);
-          getSum();
->>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
         }
-      });
-    }
-    if (target.innerText == '+') {
-      var idjian = target.dataset.id;
-      var dange = $('#' + idjian + '').html();
-      dange++;
-      if (dange > 10) {
-        dange = 10;
-      }
-      $('#' + idjian + '').html(dange);
-      $$.Ajax.deleteCartProduct(idjian, dange, function(data) {
-        if (data.code == 0) {
-          var goods_price = parseInt($('.' + idjian + '').html());
-          $('.' + idjian + '').next().next().html(goods_price * dange);
-          getSum();
+        if (target.innerText == '取消') {
+            $('.cart_confirm').css('display', 'none')
         }
-      });
-    }
-    if (target.innerText == 'X') {
-      var x_id = target.dataset.id;
-      $('.cart_confirm').css('display', 'block');
-      $('.cart_ok').attr('data-id', '' + x_id + '');
-    }
-    if (target.innerText == '取消') {
-      $('.cart_confirm').css('display', 'none');
-    }
-    if (target.innerText == '确定') {
-      var q_id = target.dataset.id;
-      var number = 0;
+        if (target.innerText == '确定') {
+            var q_id = target.dataset.id;
+            var number = 0;
 
-<<<<<<< HEAD
             $$.Ajax.deleteCartProduct(q_id, number, function (data) {
                 if (data.code == 0) {
                     $('.' + q_id + '').parent().parent().parent().parent().parent().remove();
@@ -169,24 +110,8 @@ jQuery(function($) {
                 }
             });
             $('.cart_confirm').css('display', 'none');
-=======
-      $$.Ajax.deleteCartProduct(q_id, number, function(data) {
-        if (data.code == 0) {
-          $('.' + q_id + '').
-              parent().
-              parent().
-              parent().
-              parent().
-              parent().
-              remove();
-          getSum();
->>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
         }
-      });
-      $('.cart_confirm').css('display', 'none');
-    }
 
-<<<<<<< HEAD
         if (target.innerText == '清空') {
             $('.cart_confirm1').css('display', 'block');
         }
@@ -239,59 +164,5 @@ jQuery(function($) {
         }
         $('#cart_sum').html(sum)
         localStorage.setItem('cartgoods_sum',''+sum+'')
-=======
-    if (target.innerText == '清空') {
-      $('.cart_confirm1').css('display', 'block');
     }
-    if (target.innerText == '否') {
-      $('.cart_confirm1').css('display', 'none');
-    }
-    if (target.innerText == '是') {
-      var oGoodsIds = document.querySelectorAll('span[name=goods_id]');
-      for (var i = 0; i < oGoodsIds.length; i++) {
-        var td = oGoodsIds[i];
-        var goods_id = parseInt(td.innerText);
-        var number = 0;
-        (function(td) {
-          $.post('http://h6.duchengjiu.top/shop/api_cart.php?token=' +
-              localStorage.token,
-              {
-                goods_id: goods_id,
-                number: number,
-              },
-              function(json) {
-                if (json.code == 0) {
-                  var tr = td.parentNode.parentNode.parentNode.parentNode.parentNode;
-                  tr.parentNode.removeChild(tr);
-                  getSum();
-                }
-              },
-          );
-        })(td);
-      }
-      $('.cart_confirm1').css('display', 'none');
-    }
-    if (target.className == 'cart_bianji') {
-      if (target.innerText == '编辑') {
-        $('.cart_delete').css('display', 'inline-block');
-        target.innerText = '完成';
-      } else {
-        $('.cart_delete').css('display', 'none');
-        target.innerText = '编辑';
-      }
-
-    }
-
-  });
-
-  function getSum() {
-    var oSums = document.querySelectorAll('span[name=sum]');
-    var sum = 0;
-    for (var i = 0; i < oSums.length; i++) {
-      sum += parseInt(oSums[i].innerText);
->>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
-    }
-    localStorage.sum = sum;
-    $('#cart_sum').html(sum);
-  }
-});
+})
