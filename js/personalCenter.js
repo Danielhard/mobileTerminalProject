@@ -34,6 +34,8 @@
     oAddressJump.addEventListener('touchstart',function () {
          location.href='address.html';
     })
+
+
     $('.myCart').on('touchstart',function(){
         if(localStorage.username) {
             location.href = 'cart.html';

@@ -54,6 +54,7 @@
   background: url("../images/shopBag.png") no-repeat;
   background-size: 0.22rem 0.22rem;
   right: 0.17rem;
+  z-index: 9999;
 }
 
 /*banner部分样式开始*/
@@ -258,5 +259,18 @@
   line-height: 15px;
   right: 8px;
   top: 5px;
+  display: none;
+}
+/*回到顶部*/
+.gotop {
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/uptop.png);
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  position: fixed;
+  bottom: 59px;
+  right: 15px;
+  z-index: 50;
   display: none;
 }

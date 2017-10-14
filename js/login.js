@@ -8,10 +8,10 @@ var oLiginErr = document.querySelector("#Login-err");
 oLiginBtn.addEventListener("touchstart", function() {
 	$$.Ajax.login(oLiginAccount.value, oInput.value, function(data) {
 		var dataObj = data['data'];
-		
-		$$.setItem("token",dataObj['token']);
-		$$.setItem("username",dataObj['username']);
+
 		if(data.code ===0){
+      $$.setItem("token",dataObj['token']);
+      $$.setItem("username",dataObj['username']);
 			if(localStorage.backurl) {
 				location.href = localStorage.backurl;
 			} else {
@@ -20,8 +20,7 @@ oLiginBtn.addEventListener("touchstart", function() {
 		}else{
 			oLiginErr.style.display = "block";
 		}
-		
-	})
+		})
 })
 
 // 图标点击事件 //

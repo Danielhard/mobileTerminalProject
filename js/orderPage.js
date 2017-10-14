@@ -44,7 +44,7 @@
 		      <thead>
 			          <th>订单号:${obj.order_id}</th>
 			          <th>付款\¥ ${sums}</th>
-			          <th><span data-id="${obj.order_id}" class="cancel-order" id="order">取消订单</span></th>
+			          <th><span data-id="${obj.order_id}" class="cancel-order" id="order">删除订单</span></th>
 		      		</thead>
 		        ${goodsHTML}
 		    </table>
