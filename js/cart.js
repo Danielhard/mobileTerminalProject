@@ -1,13 +1,13 @@
 jQuery(function ($) {
 
-  $$.Ajax.seeUserCart(function(data){
-    var data = data['data'];
-    var str = '';
-    for (var i = 0; i < data.length; i++) {
-      var obj = data[i];
-      obj.goods_price = parseInt(obj.goods_price);
-      obj.goods_sum = obj.goods_price * obj.goods_number;
-      str += `
+    $$.Ajax.seeUserCart(function (data) {
+        var data = data['data'];
+        var str = '';
+        for (var i = 0; i < data.length; i++) {
+            var obj = data[i];
+            obj.goods_price = parseInt(obj.goods_price);
+            obj.goods_sum = obj.goods_price * obj.goods_number;
+            str += `
             <div class="cart_good">
                     <div class="cart_good1">
                         <button class='cart_delete' data-id="${obj.goods_id}"><span data-id="${obj.goods_id}">X</span></button>
@@ -29,10 +29,10 @@ jQuery(function ($) {
                     </div>
                 </div>
             `
-    }
-    $('.cart_tianjia').html(str);
-    getSum();
-  });
+        }
+        $('.cart_tianjia').html(str);
+        getSum();
+    });
 
     //var startPos
     //var endPos
@@ -81,6 +81,7 @@ jQuery(function ($) {
                     number: dange
                 },
                 function (json) {
+                    console.log(json)
                     if (json.code == 0) {
                         var goods_price = parseInt($('.' + idjian + '').html());
                         $('.' + idjian + '').next().next().html(goods_price * dange);
@@ -102,11 +103,11 @@ jQuery(function ($) {
             var q_id = target.dataset.id;
             var number = 0;
 
-            $$.Ajax.deleteCartProduct(q_id,number,function(data){
-              if (data.code == 0) {
-                $('.' + q_id + '').parent().parent().parent().parent().parent().remove();
-                getSum();
-              }
+            $$.Ajax.deleteCartProduct(q_id, number, function (data) {
+                if (data.code == 0) {
+                    $('.' + q_id + '').parent().parent().parent().parent().parent().remove();
+                    getSum();
+                }
             });
             $('.cart_confirm').css('display', 'none');
         }
@@ -141,26 +142,27 @@ jQuery(function ($) {
             }
             $('.cart_confirm1').css('display', 'none')
         }
-        if(target.className == 'cart_bianji'){
-            if(target.innerText == '编辑'){
-                 $('.cart_delete').css('display','inline-block')
-                  target.innerText = '完成'
-            }else{
-                $('.cart_delete').css('display','none')
+        if (target.className == 'cart_bianji') {
+            if (target.innerText == '编辑') {
+                $('.cart_delete').css('display', 'inline-block')
+                target.innerText = '完成'
+            } else {
+                $('.cart_delete').css('display', 'none')
                 target.innerText = '编辑'
             }
-           
-           
+
+
         }
-        
+
     })
+
     function getSum() {
         var oSums = document.querySelectorAll('span[name=sum]');
         var sum = 0;
         for (var i = 0; i < oSums.length; i++) {
             sum += parseInt(oSums[i].innerText);
         }
-        localStorage.sum = sum
         $('#cart_sum').html(sum)
+        localStorage.setItem('cartgoods_sum',''+sum+'')
     }
 })

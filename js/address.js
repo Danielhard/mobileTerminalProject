@@ -219,10 +219,17 @@
       target.className = "touch";
       localStorage.address_id = parseInt(target.dataset.id);
       console.log(localStorage.address_id);
+      console.log(target.childNodes)
+      localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
+      localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
+      localStorage.setItem('district',''+target.childNodes[5].innerText+'')
     } else if (target.nodeName === 'SPAN') {
       target.parentNode.className = "touch";
       localStorage.address_id = parseInt(target.parentNode.dataset.id);
       console.log(localStorage.address_id);
+      localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
+      localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
+      localStorage.setItem('district',''+target.childNodes[5].innerText+'')
     }
   });
 
