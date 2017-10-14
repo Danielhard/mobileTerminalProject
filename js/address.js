@@ -233,6 +233,7 @@
       var dataArr = data['data'];
       var addressCount = dataArr.length;
       console.log(dataArr);
+      piece.innerHTML='';
       for (var i = dataArr.length - 1; i >= 0; i--) {
         var obj = dataArr[i];
         piece.innerHTML += `
