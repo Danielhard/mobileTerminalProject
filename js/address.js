@@ -24,9 +24,7 @@
     oHidden.style.display = "block";
     addMessage.style.display = "none";
   }, false);
-  oAgree.addEventListener('touchstart', function () {
-    location.href = 'checkout.html';
-  }, false);
+
 // 默认按钮
   var open = document.querySelectorAll("span")[1];
   open.addEventListener("touchstart", function () {
@@ -212,19 +210,44 @@
           }
         })
       }
-
-      // 选择一个地址
+    // 选择一个地址
+    var oAddressLis = piece.querySelectorAll('li');
+    for (var i = 0; i < oAddressLis.length; i++) {
+      oAddressLis[i].classList.remove('touch');
+    }
     if (target.nodeName === 'LI') {
       //点击LI元素选择一个收货地址
-      target.className = "touch";
       localStorage.address_id = parseInt(target.dataset.id);
+      selected_address_id=parseInt(target.dataset.id);
       console.log(localStorage.address_id);
+<<<<<<< HEAD
+      console.log(target.childNodes)
+      localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
+      localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
+      localStorage.setItem('district',''+target.childNodes[5].innerText+'')
+=======
+      target.classList.add('touch');
+>>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
     } else if (target.nodeName === 'SPAN') {
-      target.parentNode.className = "touch";
       localStorage.address_id = parseInt(target.parentNode.dataset.id);
+      selected_address_id=parseInt(target.parentNode.dataset.id);
       console.log(localStorage.address_id);
+<<<<<<< HEAD
+      localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
+      localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
+      localStorage.setItem('district',''+target.childNodes[5].innerText+'')
+=======
+      target.parentNode.classList.add('touch');
+>>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
     }
   });
+  oAgree.addEventListener('touchstart', function () {
+    if(selected_address_id===0){
+      alert('请选择一个收货地址',1000);
+      return;
+    }
+    location.href = 'checkout.html';
+  }, false);
 
   // 获取地址方法
   function getaddressMethod() {
@@ -233,6 +256,7 @@
       var dataArr = data['data'];
       var addressCount = dataArr.length;
       console.log(dataArr);
+      piece.innerHTML='';
       for (var i = dataArr.length - 1; i >= 0; i--) {
         var obj = dataArr[i];
         piece.innerHTML += `
@@ -244,7 +268,6 @@
                    </li>
               `;
       }
-
       if(addressCount!=0){
         piece.style.display = "block";
         addBox.style.display = "none";
@@ -252,7 +275,7 @@
       }
     });
   }
-  getaddressMethod();
+getaddressMethod();
 })();
 
 

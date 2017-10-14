@@ -29,12 +29,10 @@
         oUser_login_name.innerText='用户名：';
         oUpInfo_username.innerText='';
     }
-
     // 个人中心管理收货地址
     oAddressJump.addEventListener('touchstart',function () {
          location.href='address.html';
-    })
-
+    });
 
     $('.myCart').on('touchstart',function(){
         if(localStorage.username) {

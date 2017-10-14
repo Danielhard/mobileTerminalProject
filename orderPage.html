@@ -17,26 +17,54 @@
 		<div class="orderindex">
 			<div class="top-context">
 				<div class="ordertop">
-					<a href="javascript:history.back();"><div class="back"></div></a>
+					<a href="personalCenter.html"><div class="back"></div></a>
 					<h1>我的订单</h1>
 				</div>
 				<nav class="order_nav">
-					<div class="nav_list">
-						<a href="#">待付款</a>
+					<div class="nav_list" id="nav_list">
+						<span class="current">待付款</span>
+			      <span>待收货</span>
+			      <span class="last all_order">全部订单</span>
+						<!--<a href="#">待付款</a>
 						<a href="#">待收货</a>
-						<a href="#" class="all_order">全部订单</a>
+						<a href="#" class="all_order">全部订单</a>-->
 					</div>
 				</nav>
 			</div>
 			<div class="order_context" id="context">
-				<div id="order-table"></div>
-				<!--没有订单时显示的内容-->
-				<!--<div class='order_no_top'></div>
+				<div  name="hid">
+					<div class="order_no_body">
+						<div class='order_no_top'></div>
 						<p class='order_1'>暂无相关订单</p>
-						<p class='order_2'>您还没有相关订单哦</p>
+						<p class='order_2'>您还没有待付款订单哦</p>
 						<p class='order_back'>
 							<a href='index.html'><span>返回首页</span></a>
-						</p>-->
+						</p>
+					</div>
+				</div>
+	      <div name="hid">
+	      	<div class="order_no_body">
+						<div class='order_no_top'></div>
+						<p class='order_1'>暂无相关订单</p>
+						<p class='order_2'>您还没有待收货订单哦</p>
+						<p class='order_back'>
+							<a href='index.html'><span>返回首页</span></a>
+						</p>
+					</div>
+	      </div>
+	      <div class="current" name="hid">
+	      	<div id="order-table"></div>
+	      </div>
+				
+				<!--没有订单时显示的内容-->
+				<!--<div class="order_no_body">
+							<div class='order_no_top'></div>
+							<p class='order_1'>暂无相关订单</p>
+							<p class='order_2'>您还没有相关订单哦</p>
+							<p class='order_back'>
+								<a href='index.html'><span>返回首页</span></a>
+							</p>
+						</div>-->
 				<!--有订单时显示的内容-->
 					<!--<table>
 	      		<thead>
@@ -62,6 +90,7 @@
 		<script src="js/orderPagetoast.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/orderPage.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/confirm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/orderTeb.js" charset="utf-8"></script>
 	</body>
 
 </html>

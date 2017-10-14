@@ -19,7 +19,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    overflow: scroll;
+   
     z-index: 2;
 }
 
@@ -119,7 +119,7 @@
     top: 0.44rem;
     bottom: 0.6rem;
     width: 100%;
-    overflow: scroll;
+  
 }
 
 .checkout_con {
@@ -173,12 +173,12 @@
 
 .checkout_more {
     position: absolute;
-    right: 0.17rem;
-    bottom: 0.33rem;
-    width: 0.22rem;
-    height: 0.22rem;
+    right: 0.15rem;
+    bottom: 0.25rem;
+    width: 0.4rem;
+    height: 0.4rem;
     background: url(../images/checkout_more.png) no-repeat;
-    background-size: 0.22rem 0.22rem;
+    background-size: 0.4rem 0.4rem;
 }
 
 .checkout_address::after {
@@ -203,7 +203,7 @@
 .checkout_msn {
     outline: none;
     flex: 1;
-    height: 97%;
+    height: 95%;
     font-size: 0.14rem;
     border: none;
 }
@@ -294,4 +294,54 @@
 .checkout_rular {
     font-size: 0.13rem;
     color: #333;
+}
+.checkout_confirm {
+    margin-top: -0.435rem;
+    width: 3rem;
+    text-align: center;
+    border-radius: 8px;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.5rem;
+    top: 50%;
+    padding: 0.1rem 0.05rem;
+    background: #C69C6D;
+    opacity: 0.9;
+    color: #fff;
+    box-sizing: border-box;
+    z-index: 20;
+    font-size: 0.16rem;
+    display: none;
+}
+.checkout_title {
+    margin: 0.1rem 0;
+}
+.checkout_ok {
+    display: inline-block;
+    width: 0.6rem;
+    margin-right: 0.1rem;
+    padding: 0.05rem;
+    color: white;
+    background-color: #C69C6D;
+    box-sizing: border-box;
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+}
+.checkout_confirm1 {
+    margin-top: -0.435rem;
+    width: 3rem;
+    text-align: center;
+    border-radius: 8px;
+    position: absolute;
+    left: 50%;
+    margin-left: -1.5rem;
+    top: 50%;
+    padding: 0.1rem 0.05rem;
+    background: #C69C6D;
+    opacity: 0.9;
+    color: #fff;
+    box-sizing: border-box;
+    z-index: 20;
+    font-size: 0.16rem;
+    display: none;
 }
