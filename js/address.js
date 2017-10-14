@@ -24,9 +24,7 @@
     oHidden.style.display = "block";
     addMessage.style.display = "none";
   }, false);
-  oAgree.addEventListener('touchstart', function () {
-    location.href = 'checkout.html';
-  }, false);
+
 // 默认按钮
   var open = document.querySelectorAll("span")[1];
   open.addEventListener("touchstart", function () {
@@ -212,19 +210,31 @@
           }
         })
       }
-
-      // 选择一个地址
+    // 选择一个地址
+    var oAddressLis = piece.querySelectorAll('li');
+    for (var i = 0; i < oAddressLis.length; i++) {
+      oAddressLis[i].classList.remove('touch');
+    }
     if (target.nodeName === 'LI') {
       //点击LI元素选择一个收货地址
-      target.className = "touch";
       localStorage.address_id = parseInt(target.dataset.id);
+      selected_address_id=parseInt(target.dataset.id);
       console.log(localStorage.address_id);
+      target.classList.add('touch');
     } else if (target.nodeName === 'SPAN') {
-      target.parentNode.className = "touch";
       localStorage.address_id = parseInt(target.parentNode.dataset.id);
+      selected_address_id=parseInt(target.parentNode.dataset.id);
       console.log(localStorage.address_id);
+      target.parentNode.classList.add('touch');
     }
   });
+  oAgree.addEventListener('touchstart', function () {
+    if(selected_address_id===0){
+      alert('请选择一个收货地址',1000);
+      return;
+    }
+    location.href = 'checkout.html';
+  }, false);
 
   // 获取地址方法
   function getaddressMethod() {
@@ -245,7 +255,6 @@
                    </li>
               `;
       }
-
       if(addressCount!=0){
         piece.style.display = "block";
         addBox.style.display = "none";
@@ -253,7 +262,7 @@
       }
     });
   }
-  getaddressMethod();
+getaddressMethod();
 })();
 
 
