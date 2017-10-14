@@ -51,5 +51,18 @@
 
     });
 
+    //叶家辉
+  $('#birthday').on('touchstart',function(){
+    var birthdayInput = document.querySelector('#birthday > input');
+    console.log(birthdayInput);
+    birthdayInput.ontouchstart = function(){};
+    birthdayInput.ontouchstart();
+
+    birthdayInput.onblur = function(){
+      console.log($(this).val());
+      $("#birthday > .up_r_tx").html($(this).val() + '<div class="more"></div>');
+    }
+  })
+
 
 })();

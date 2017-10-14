@@ -1,5 +1,5 @@
 jQuery(function ($) {
-    var xiaoji = localStorage.cartgoods_sum
+    var xiaoji = localStorage.cartgoods_sum;
     $('.checkout_xiaoji').html('' + xiaoji + '')
     var yingfu = xiaoji - 50
     if (yingfu < 0) {
@@ -52,7 +52,7 @@ jQuery(function ($) {
                     var que = document.querySelector('#checkout_que')
                     que.addEventListener('touchstart', function () {
                         $('.checkout_confirm1').css('display', 'none')
-                        location.href = 'order.html'
+                        location.href = 'orderPage.html';
                     })
                 }
             }

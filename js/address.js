@@ -219,26 +219,17 @@
       //点击LI元素选择一个收货地址
       localStorage.address_id = parseInt(target.dataset.id);
       selected_address_id=parseInt(target.dataset.id);
-      console.log(localStorage.address_id);
-<<<<<<< HEAD
-      console.log(target.childNodes)
       localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
       localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
       localStorage.setItem('district',''+target.childNodes[5].innerText+'')
-=======
       target.classList.add('touch');
->>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
     } else if (target.nodeName === 'SPAN') {
       localStorage.address_id = parseInt(target.parentNode.dataset.id);
       selected_address_id=parseInt(target.parentNode.dataset.id);
-      console.log(localStorage.address_id);
-<<<<<<< HEAD
       localStorage.setItem('consignee',''+target.childNodes[1].innerText+'')
       localStorage.setItem('mobile',''+target.childNodes[3].innerText+'')
       localStorage.setItem('district',''+target.childNodes[5].innerText+'')
-=======
       target.parentNode.classList.add('touch');
->>>>>>> 4f612b828ed8daf64d1e31e5fb51e28ba095f3ef
     }
   });
   oAgree.addEventListener('touchstart', function () {

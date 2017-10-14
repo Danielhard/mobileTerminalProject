@@ -27,7 +27,7 @@ html {
 .ordertop .back {
 	width: 0.22rem;
 	height: 0.22rem;
-	background: url(../images/return.png) no-repeat;
+	background: url(../images/back.png) no-repeat;
 	background-size: 0.22rem 0.22rem;
 	position: absolute;
 	top: 0.1rem;

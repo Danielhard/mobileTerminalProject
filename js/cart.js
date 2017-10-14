@@ -1,15 +1,20 @@
 jQuery(function ($) {
 
 
-    $$.Ajax.seeUserCart(function (data) {
-        var data = data['data'];
-        var str = '';
-        for (var i = 0; i < data.length; i++) {
-            var obj = data[i];
-            obj.goods_price = parseInt(obj.goods_price);
-            obj.goods_sum = obj.goods_price * obj.goods_number;
-            str += `
-                < div class="cart_good" >
+
+  $$.Ajax.seeUserCart(function(data) {
+    if(data['code'] !== 0){
+      toast(data['message'],3000);
+      return ;
+    }
+    var data = data['data'];
+    var str = '';
+    for (var i = 0; i < data.length; i++) {
+      var obj = data[i];
+      obj.goods_price = parseInt(obj.goods_price);
+      obj.goods_sum = obj.goods_price * obj.goods_number;
+      str += `
+            <div class="cart_good">
                     <div class="cart_good1">
                         <button class='cart_delete' data-id="${obj.goods_id}"><span data-id="${obj.goods_id}">X</span></button>
                         <div class="cart_good2">
@@ -36,14 +41,6 @@ jQuery(function ($) {
         getSum();
     });
 
-    //var startPos
-    //var endPos
-    //var duration
-    //var nowY = 0
-    //var gheight
-    //var zhengsu
-    //var shuliang
-    //var geshu
 
     $('body').on('touchend', function () {
         var target = event.target || event.srcElement;
@@ -223,5 +220,7 @@ jQuery(function ($) {
         }
         localStorage.sum = sum;
         $('#cart_sum').html(sum);
-    }
+
+        localStorage.setItem('cartgoods_sum',''+sum+'');
+  }
 });

@@ -14,6 +14,7 @@
   var canadd = false;
   function fetHotProductMethod(page,pagesize){
     $$.Ajax.fetchHotProduct(page,pagesize,function(data){
+      console.log(data);
       var dataArr = data['data'];
       for(var i = 0; i < dataArr.length; i ++){
         $("#pro-list").append($$.createDom(dataArr[i]));
@@ -33,7 +34,6 @@
     var nowHeight = $(document).scrollTop();
 
     if(nowHeight / maxHeight >= 0.8) {
-      console.log(page);
       page ++ ;
       fetHotProductMethod(page,20);
       canadd = false;
@@ -94,7 +94,7 @@
   function showPro() {
     // 获取购物车数据根据购物车中的data数组来判断商品个数
     $$.Ajax.fetchData(function(data){
-    	console.log(data);
+    	//console.log(data);
     	$('.totalNum')[0].innerText = data.data.length;
     });
   }
