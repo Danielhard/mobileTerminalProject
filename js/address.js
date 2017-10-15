@@ -59,7 +59,7 @@
 //    history.back();
 //  }, false);
 
-  var oLi = document.getElementsByTagName("li");
+  var oLi = document.querySelectorAll(".nav-select");
   var oNav = document.querySelector("#address-nav");
   var oText1 = document.querySelector("#text1");
   var oProvince = document.querySelectorAll("ul")[1];
