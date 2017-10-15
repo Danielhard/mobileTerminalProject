@@ -145,7 +145,8 @@ jQuery(function ($) {
                 target.innerText = '完成'
             } else {
                 $('.cart_delete').css('display', 'none')
-                target.innerText = '编辑'
+                target.innerText = '编辑';
+
             }
 
 
@@ -163,4 +164,14 @@ jQuery(function ($) {
 
         localStorage.setItem('cartgoods_sum', '' + sum + '');
     }
+
+$('.cart_btm a').on('touchstart',function (event) {
+
+        if($('.cart_tianjia').html()===''){
+            this.href='checkout.html';
+        }else{
+            this.href="javascript:0";
+        }
+  })
+
 });
