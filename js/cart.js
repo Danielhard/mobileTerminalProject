@@ -5,6 +5,7 @@ jQuery(function ($) {
     $$.Ajax.seeUserCart(function (data) {
         if (data['code'] !== 0) {
             toast(data['message'], 3000);
+            setLink();
             return;
         }
         var data = data['data'];
@@ -39,6 +40,7 @@ jQuery(function ($) {
         }
         $('.cart_tianjia').html(str);
         getSum();
+        setLink();
     });
 
     $('body').on('touchend', function () {
@@ -133,6 +135,7 @@ jQuery(function ($) {
                                 tr.parentNode.removeChild(tr);
                                 getSum();
                             }
+                            setLink();
                         }
                     )
                 })(td)
@@ -165,13 +168,16 @@ jQuery(function ($) {
         localStorage.setItem('cartgoods_sum', '' + sum + '');
     }
 
-$('.cart_btm a').on('touchstart',function (event) {
-
-        if($('.cart_tianjia').html()===''){
-            this.href='checkout.html';
+    function setLink(){
+      $('.cart_btm a').on('touchstart',function (event) {
+        var cart_tianjia = document.querySelector('.cart_tianjia');
+        console.log(cart_tianjia.innerText);
+        if(cart_tianjia.innerText === ''){
+          this.href="javascript:0";
         }else{
-            this.href="javascript:0";
+          this.href='checkout.html';
         }
-  })
+      });
+    }
 
 });

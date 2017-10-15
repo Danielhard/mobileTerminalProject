@@ -52,10 +52,10 @@
   }, false);
 
 // 收货地址返回个人中心
-  var oReturnPersonal = document.querySelector('#returnPersonal');
-  oReturnPersonal.addEventListener('touchstart', function () {
-    location.href = 'personalCenter.html';
-  }, false);
+//  var oReturnPersonal = document.querySelector('#returnPersonal');
+//  oReturnPersonal.addEventListener('touchstart', function () {
+//    history.back();
+//  }, false);
 
   var oLi = document.getElementsByTagName("li");
   var oNav = document.querySelector("#address-nav");
