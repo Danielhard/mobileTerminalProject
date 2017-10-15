@@ -39,6 +39,13 @@ jQuery(function ($) {
         }
         $('.cart_tianjia').html(str);
         getSum();
+        $('.cart_btm a').on('touchstart',function () {
+            if($('.cart_tianjia').html()===''){
+                this.href="javascript:0";
+            }else{
+                this.href='checkout.html';
+            }
+        });
     });
 
     $('body').on('touchend', function () {
@@ -165,13 +172,6 @@ jQuery(function ($) {
         localStorage.setItem('cartgoods_sum', '' + sum + '');
     }
 
-$('.cart_btm a').on('touchstart',function (event) {
 
-        if($('.cart_tianjia').html()===''){
-            this.href='checkout.html';
-        }else{
-            this.href="javascript:0";
-        }
-  })
 
 });
