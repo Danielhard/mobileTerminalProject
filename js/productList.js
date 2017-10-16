@@ -57,7 +57,9 @@
   searchProductData(1, 10);
   $('#click-add-more').on('touchstart', function() {
     number++;
-    searchProductData(number, 10);
+    setTimeout(function(){
+      searchProductData(number, 10);
+    },10);
   });
 })();
 
