@@ -17,13 +17,6 @@
     oHidden.style.display = "none";
     addMessage.style.display = "block";
   }, false);
-// 新增收货地址
-  var newAdd = document.querySelector("#newadd");
-  var oAgree = document.querySelector("#agree");
-  newAdd.addEventListener("touchstart", function () {
-    oHidden.style.display = "block";
-    addMessage.style.display = "none";
-  }, false);
 
 // 默认按钮
   var open = document.querySelectorAll("span")[1];
@@ -173,13 +166,28 @@
       oNav.removeChild(text3);
     }
   }, false);
-  
-// 保存收货地址
+
   var oSave = document.querySelector("#save");
   var addBox = document.querySelector("#add-box");
   var addFoot = document.querySelector("#add-foot");
   var areadetail = document.querySelector("#area-detail");
   var piece = document.querySelector("#address-piece");
+
+  // 新增收货地址
+  var newAdd = document.querySelector("#newadd");
+  var oAgree = document.querySelector("#agree");
+  newAdd.addEventListener("touchstart", function () {
+    oHidden.style.display = "block";
+    addMessage.style.display = "none";
+    var name = document.querySelector("#name").value = "";
+    var phone = document.querySelector("#tel").value = "";
+    var detail = document.querySelector("#detail-address").value = "";
+    var postcode = document.querySelector("#postcode").value = "";
+    var areadetail = document.querySelector("#area-detail");
+    var areadetailTxt = areadetail.innerText = "省-市-区";
+  }, false);
+
+  // 保存收货地址
   oSave.addEventListener("touchstart", function () {
     var name = document.querySelector("#name").value;
     var phone = document.querySelector("#tel").value;
